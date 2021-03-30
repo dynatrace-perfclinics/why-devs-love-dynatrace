@@ -3,6 +3,7 @@ delete:
   - "application/EasyTravel Classic"
   - "app-detection-rule/EasyTravel Angular"
   - "app-detection-rule/EasyTravel Angular 9080"
+  - "app-detection-rule/EasyTravel Angular 9079"
   - "app-detection-rule/EasyTravel Classic 8079"
   - "app-detection-rule/EasyTravel Classic 8080"
   - "auto-tag/Application"

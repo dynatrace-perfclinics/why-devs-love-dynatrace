@@ -1,191 +1,213 @@
 {
- "metadata": {
-  "clusterVersion": "1.212.111.20210322-210138",
-  "configurationVersions": [
-   7
-  ]
- },
- "name": "{{.name}}",
- "rules": [
-  {
-   "conditions": [
-    {
-     "comparisonInfo": {
-      "caseSensitive": false,
-      "negate": false,
-      "operator": "CONTAINS",
-      "type": "STRING",
-      "value": "bankjob"
-     },
-     "key": {
-      "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
-      "dynamicKey": "JAVA_JAR_FILE",
-      "type": "PROCESS_PREDEFINED_METADATA_KEY"
-     }
-    }
-   ],
-   "enabled": true,
-   "propagationTypes": [
-    "PROCESS_GROUP_TO_HOST",
-    "PROCESS_GROUP_TO_SERVICE"
-   ],
-   "type": "PROCESS_GROUP",
-   "valueFormat": "Bankjob"
-  },
-  {
-   "conditions": [
-    {
-     "comparisonInfo": {
-      "caseSensitive": true,
-      "negate": true,
-      "operator": "CONTAINS",
-      "type": "STRING",
-      "value": "weblauncher"
-     },
-     "key": {
-      "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
-      "dynamicKey": "JAVA_JAR_FILE",
-      "type": "PROCESS_PREDEFINED_METADATA_KEY"
-     }
+    "metadata": {
+     "clusterVersion": "1.212.111.20210322-210138",
+     "configurationVersions": [
+      7
+     ]
     },
-    {
-     "comparisonInfo": {
-      "caseSensitive": true,
-      "negate": false,
-      "operator": "CONTAINS",
-      "type": "STRING",
-      "value": "easytravel"
+    "name": "{{.name}}",
+    "rules": [
+     {
+      "conditions": [
+       {
+        "comparisonInfo": {
+         "caseSensitive": false,
+         "negate": false,
+         "operator": "CONTAINS",
+         "type": "STRING",
+         "value": "bankjob"
+        },
+        "key": {
+         "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
+         "dynamicKey": "JAVA_JAR_FILE",
+         "type": "PROCESS_PREDEFINED_METADATA_KEY"
+        }
+       }
+      ],
+      "enabled": true,
+      "propagationTypes": [
+       "PROCESS_GROUP_TO_HOST",
+       "PROCESS_GROUP_TO_SERVICE"
+      ],
+      "type": "PROCESS_GROUP",
+      "valueFormat": "Bankjob"
      },
-     "key": {
-      "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
-      "dynamicKey": "JAVA_JAR_FILE",
-      "type": "PROCESS_PREDEFINED_METADATA_KEY"
-     }
-    }
-   ],
-   "enabled": true,
-   "propagationTypes": [
-    "PROCESS_GROUP_TO_HOST",
-    "PROCESS_GROUP_TO_SERVICE"
-   ],
-   "type": "PROCESS_GROUP",
-   "valueFormat": "EasyTravel"
-  },
-  {
-   "conditions": [
-    {
-     "comparisonInfo": {
-      "caseSensitive": false,
-      "negate": false,
-      "operator": "CONTAINS",
-      "type": "STRING",
-      "value": "/easytravel-2.0.0-x64/chrome32/driver/chromedriver_linux64"
+     {
+      "conditions": [
+       {
+        "comparisonInfo": {
+         "caseSensitive": true,
+         "negate": true,
+         "operator": "CONTAINS",
+         "type": "STRING",
+         "value": "weblauncher"
+        },
+        "key": {
+         "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
+         "dynamicKey": "JAVA_JAR_FILE",
+         "type": "PROCESS_PREDEFINED_METADATA_KEY"
+        }
+       },
+       {
+        "comparisonInfo": {
+         "caseSensitive": true,
+         "negate": false,
+         "operator": "CONTAINS",
+         "type": "STRING",
+         "value": "easytravel"
+        },
+        "key": {
+         "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
+         "dynamicKey": "JAVA_JAR_FILE",
+         "type": "PROCESS_PREDEFINED_METADATA_KEY"
+        }
+       }
+      ],
+      "enabled": true,
+      "propagationTypes": [
+       "PROCESS_GROUP_TO_HOST",
+       "PROCESS_GROUP_TO_SERVICE"
+      ],
+      "type": "PROCESS_GROUP",
+      "valueFormat": "EasyTravel"
      },
-     "key": {
-      "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
-      "dynamicKey": "EXE_PATH",
-      "type": "PROCESS_PREDEFINED_METADATA_KEY"
-     }
-    }
-   ],
-   "enabled": true,
-   "propagationTypes": [
-    "PROCESS_GROUP_TO_HOST",
-    "PROCESS_GROUP_TO_SERVICE"
-   ],
-   "type": "PROCESS_GROUP",
-   "valueFormat": "EasyTravel Configuration and Load"
-  },
-  {
-   "conditions": [
-    {
-     "comparisonInfo": {
-      "caseSensitive": true,
-      "negate": false,
-      "operator": "CONTAINS",
-      "type": "STRING",
-      "value": "CreditCardAuthoriza"
+     {
+      "conditions": [
+       {
+        "comparisonInfo": {
+         "caseSensitive": false,
+         "negate": false,
+         "operator": "CONTAINS",
+         "type": "STRING",
+         "value": "/easytravel-2.0.0-x64/chrome32/driver/chromedriver_linux64"
+        },
+        "key": {
+         "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
+         "dynamicKey": "EXE_PATH",
+         "type": "PROCESS_PREDEFINED_METADATA_KEY"
+        }
+       }
+      ],
+      "enabled": true,
+      "propagationTypes": [
+       "PROCESS_GROUP_TO_HOST",
+       "PROCESS_GROUP_TO_SERVICE"
+      ],
+      "type": "PROCESS_GROUP",
+      "valueFormat": "EasyTravel Configuration and Load"
      },
-     "key": {
-      "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
-      "dynamicKey": "EXE_PATH",
-      "type": "PROCESS_PREDEFINED_METADATA_KEY"
-     }
-    }
-   ],
-   "enabled": true,
-   "propagationTypes": [
-    "PROCESS_GROUP_TO_SERVICE"
-   ],
-   "type": "PROCESS_GROUP",
-   "valueFormat": "EasyTravel"
-  },
-  {
-   "conditions": [
-    {
-     "comparisonInfo": {
-      "caseSensitive": false,
-      "negate": false,
-      "operator": "CONTAINS",
-      "type": "STRING",
-      "value": "easytravel"
+     {
+      "conditions": [
+       {
+        "comparisonInfo": {
+         "caseSensitive": true,
+         "negate": false,
+         "operator": "CONTAINS",
+         "type": "STRING",
+         "value": "CreditCardAuthoriza"
+        },
+        "key": {
+         "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
+         "dynamicKey": "EXE_PATH",
+         "type": "PROCESS_PREDEFINED_METADATA_KEY"
+        }
+       }
+      ],
+      "enabled": true,
+      "propagationTypes": [
+       "PROCESS_GROUP_TO_SERVICE"
+      ],
+      "type": "PROCESS_GROUP",
+      "valueFormat": "EasyTravel"
      },
-     "key": {
-      "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
-      "dynamicKey": "APACHE_CONFIG_PATH",
-      "type": "PROCESS_PREDEFINED_METADATA_KEY"
-     }
-    }
-   ],
-   "enabled": true,
-   "propagationTypes": [
-    "PROCESS_GROUP_TO_SERVICE"
-   ],
-   "type": "PROCESS_GROUP",
-   "valueFormat": "EasyTravel"
-  },
-  {
-   "conditions": [
-    {
-     "comparisonInfo": {
-      "caseSensitive": false,
-      "negate": false,
-      "operator": "CONTAINS",
-      "type": "STRING",
-      "value": "easytravel"
+     {
+      "conditions": [
+       {
+        "comparisonInfo": {
+         "caseSensitive": false,
+         "negate": false,
+         "operator": "CONTAINS",
+         "type": "STRING",
+         "value": "easytravel"
+        },
+        "key": {
+         "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
+         "dynamicKey": "APACHE_CONFIG_PATH",
+         "type": "PROCESS_PREDEFINED_METADATA_KEY"
+        }
+       }
+      ],
+      "enabled": true,
+      "propagationTypes": [
+       "PROCESS_GROUP_TO_SERVICE"
+      ],
+      "type": "PROCESS_GROUP",
+      "valueFormat": "EasyTravel"
      },
-     "key": {
-      "attribute": "WEB_APPLICATION_NAME"
-     }
-    }
-   ],
-   "enabled": true,
-   "propagationTypes": [],
-   "type": "APPLICATION",
-   "valueFormat": "EasyTravel"
-  },
-  {
-   "conditions": [
-    {
-     "comparisonInfo": {
-      "caseSensitive": false,
-      "negate": false,
-      "operator": "CONTAINS",
-      "type": "STRING",
-      "value": "easyTravelBusiness"
+     {
+      "conditions": [
+       {
+        "comparisonInfo": {
+         "caseSensitive": false,
+         "negate": false,
+         "operator": "CONTAINS",
+         "type": "STRING",
+         "value": "easytravel"
+        },
+        "key": {
+         "attribute": "WEB_APPLICATION_NAME"
+        }
+       }
+      ],
+      "enabled": true,
+      "propagationTypes": [],
+      "type": "APPLICATION",
+      "valueFormat": "EasyTravel"
      },
-     "key": {
-      "attribute": "SERVICE_NAME"
+     {
+      "conditions": [
+       {
+        "comparisonInfo": {
+         "caseSensitive": false,
+         "negate": false,
+         "operator": "CONTAINS",
+         "type": "STRING",
+         "value": "easyTravelBusiness"
+        },
+        "key": {
+         "attribute": "SERVICE_NAME"
+        }
+       }
+      ],
+      "enabled": true,
+      "propagationTypes": [
+       "SERVICE_TO_HOST_LIKE",
+       "SERVICE_TO_PROCESS_GROUP_LIKE"
+      ],
+      "type": "SERVICE",
+      "valueFormat": "EasyTravel"
+     },
+     {
+      "conditions": [
+       {
+        "comparisonInfo": {
+         "caseSensitive": true,
+         "negate": false,
+         "operator": "CONTAINS",
+         "type": "STRING",
+         "value": "reverseproxy"
+        },
+        "key": {
+         "attribute": "DOCKER_CONTAINER_NAME"
+        }
+       }
+      ],
+      "enabled": true,
+      "propagationTypes": [
+       "PROCESS_GROUP_TO_SERVICE"
+      ],
+      "type": "PROCESS_GROUP",
+      "valueFormat": "EasyTravel"
      }
-    }
-   ],
-   "enabled": true,
-   "propagationTypes": [
-    "SERVICE_TO_HOST_LIKE",
-    "SERVICE_TO_PROCESS_GROUP_LIKE"
-   ],
-   "type": "SERVICE",
-   "valueFormat": "EasyTravel"
-  }
- ]
-}
+    ]
+   }

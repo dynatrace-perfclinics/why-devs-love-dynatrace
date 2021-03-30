@@ -28,7 +28,7 @@
     "PROCESS_GROUP_TO_SERVICE"
    ],
    "type": "PROCESS_GROUP",
-   "valueFormat": "Production"
+   "valueFormat": "Staging"
   }
  ]
 }

@@ -1,171 +1,193 @@
 {
- "metadata": {
-  "clusterVersion": "1.212.111.20210322-210138",
-  "configurationVersions": [
-   7
-  ]
- },
- "name": "{{.name}}",
- "rules": [
-  {
-   "conditions": [
-    {
-     "comparisonInfo": {
-      "caseSensitive": true,
-      "negate": false,
-      "operator": "CONTAINS",
-      "type": "STRING",
-      "value": "easytravel.customer.frontend"
+    "metadata": {
+     "clusterVersion": "1.212.111.20210322-210138",
+     "configurationVersions": [
+      7
+     ]
+    },
+    "name": "{{.name}}",
+    "rules": [
+     {
+      "conditions": [
+       {
+        "comparisonInfo": {
+         "caseSensitive": true,
+         "negate": false,
+         "operator": "CONTAINS",
+         "type": "STRING",
+         "value": "easytravel.customer.frontend"
+        },
+        "key": {
+         "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
+         "dynamicKey": "JAVA_JAR_FILE",
+         "type": "PROCESS_PREDEFINED_METADATA_KEY"
+        }
+       }
+      ],
+      "enabled": true,
+      "propagationTypes": [
+       "PROCESS_GROUP_TO_SERVICE"
+      ],
+      "type": "PROCESS_GROUP",
+      "valueFormat": "FrontEnd"
      },
-     "key": {
-      "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
-      "dynamicKey": "JAVA_JAR_FILE",
-      "type": "PROCESS_PREDEFINED_METADATA_KEY"
-     }
-    }
-   ],
-   "enabled": true,
-   "propagationTypes": [
-    "PROCESS_GROUP_TO_SERVICE"
-   ],
-   "type": "PROCESS_GROUP",
-   "valueFormat": "FrontEnd"
-  },
-  {
-   "conditions": [
-    {
-     "comparisonInfo": {
-      "caseSensitive": true,
-      "negate": false,
-      "operator": "CONTAINS",
-      "type": "STRING",
-      "value": "easytravel.business.backend"
+     {
+      "conditions": [
+       {
+        "comparisonInfo": {
+         "caseSensitive": true,
+         "negate": false,
+         "operator": "CONTAINS",
+         "type": "STRING",
+         "value": "easytravel.business.backend"
+        },
+        "key": {
+         "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
+         "dynamicKey": "JAVA_JAR_FILE",
+         "type": "PROCESS_PREDEFINED_METADATA_KEY"
+        }
+       }
+      ],
+      "enabled": true,
+      "propagationTypes": [
+       "PROCESS_GROUP_TO_HOST",
+       "PROCESS_GROUP_TO_SERVICE"
+      ],
+      "type": "PROCESS_GROUP",
+      "valueFormat": "BackEnd"
      },
-     "key": {
-      "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
-      "dynamicKey": "JAVA_JAR_FILE",
-      "type": "PROCESS_PREDEFINED_METADATA_KEY"
-     }
-    }
-   ],
-   "enabled": true,
-   "propagationTypes": [
-    "PROCESS_GROUP_TO_HOST",
-    "PROCESS_GROUP_TO_SERVICE"
-   ],
-   "type": "PROCESS_GROUP",
-   "valueFormat": "BackEnd"
-  },
-  {
-   "conditions": [
-    {
-     "comparisonInfo": {
-      "caseSensitive": false,
-      "negate": false,
-      "operator": "CONTAINS",
-      "type": "STRING",
-      "value": "easytravel"
+     {
+      "conditions": [
+       {
+        "comparisonInfo": {
+         "caseSensitive": false,
+         "negate": false,
+         "operator": "CONTAINS",
+         "type": "STRING",
+         "value": "easytravel"
+        },
+        "key": {
+         "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
+         "dynamicKey": "APACHE_CONFIG_PATH",
+         "type": "PROCESS_PREDEFINED_METADATA_KEY"
+        }
+       }
+      ],
+      "enabled": true,
+      "propagationTypes": [
+       "PROCESS_GROUP_TO_SERVICE"
+      ],
+      "type": "PROCESS_GROUP",
+      "valueFormat": "FrontEnd"
      },
-     "key": {
-      "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
-      "dynamicKey": "APACHE_CONFIG_PATH",
-      "type": "PROCESS_PREDEFINED_METADATA_KEY"
-     }
-    }
-   ],
-   "enabled": true,
-   "propagationTypes": [
-    "PROCESS_GROUP_TO_SERVICE"
-   ],
-   "type": "PROCESS_GROUP",
-   "valueFormat": "FrontEnd"
-  },
-  {
-   "conditions": [
-    {
-     "comparisonInfo": {
-      "caseSensitive": false,
-      "negate": false,
-      "operator": "CONTAINS",
-      "type": "STRING",
-      "value": "CreditCardAuthor"
+     {
+      "conditions": [
+       {
+        "comparisonInfo": {
+         "caseSensitive": false,
+         "negate": false,
+         "operator": "CONTAINS",
+         "type": "STRING",
+         "value": "CreditCardAuthor"
+        },
+        "key": {
+         "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
+         "dynamicKey": "EXE_PATH",
+         "type": "PROCESS_PREDEFINED_METADATA_KEY"
+        }
+       }
+      ],
+      "enabled": true,
+      "propagationTypes": [
+       "PROCESS_GROUP_TO_SERVICE"
+      ],
+      "type": "PROCESS_GROUP",
+      "valueFormat": "BackEnd"
      },
-     "key": {
-      "attribute": "PROCESS_GROUP_PREDEFINED_METADATA",
-      "dynamicKey": "EXE_PATH",
-      "type": "PROCESS_PREDEFINED_METADATA_KEY"
-     }
-    }
-   ],
-   "enabled": true,
-   "propagationTypes": [
-    "PROCESS_GROUP_TO_SERVICE"
-   ],
-   "type": "PROCESS_GROUP",
-   "valueFormat": "BackEnd"
-  },
-  {
-   "conditions": [
-    {
-     "comparisonInfo": {
-      "caseSensitive": false,
-      "negate": false,
-      "operator": "CONTAINS",
-      "type": "STRING",
-      "value": "easyTravelBusiness"
+     {
+      "conditions": [
+       {
+        "comparisonInfo": {
+         "caseSensitive": false,
+         "negate": false,
+         "operator": "CONTAINS",
+         "type": "STRING",
+         "value": "easyTravelBusiness"
+        },
+        "key": {
+         "attribute": "SERVICE_NAME"
+        }
+       }
+      ],
+      "enabled": true,
+      "propagationTypes": [
+       "SERVICE_TO_HOST_LIKE",
+       "SERVICE_TO_PROCESS_GROUP_LIKE"
+      ],
+      "type": "SERVICE",
+      "valueFormat": "Database"
      },
-     "key": {
-      "attribute": "SERVICE_NAME"
-     }
-    }
-   ],
-   "enabled": true,
-   "propagationTypes": [
-    "SERVICE_TO_HOST_LIKE",
-    "SERVICE_TO_PROCESS_GROUP_LIKE"
-   ],
-   "type": "SERVICE",
-   "valueFormat": "Database"
-  },
-  {
-   "conditions": [
-    {
-     "comparisonInfo": {
-      "caseSensitive": false,
-      "negate": false,
-      "operator": "CONTAINS",
-      "type": "STRING",
-      "value": "easytravel"
+     {
+      "conditions": [
+       {
+        "comparisonInfo": {
+         "caseSensitive": false,
+         "negate": false,
+         "operator": "CONTAINS",
+         "type": "STRING",
+         "value": "easytravel"
+        },
+        "key": {
+         "attribute": "BROWSER_MONITOR_NAME"
+        }
+       }
+      ],
+      "enabled": true,
+      "propagationTypes": [],
+      "type": "SYNTHETIC_TEST",
+      "valueFormat": "Synthetic"
      },
-     "key": {
-      "attribute": "BROWSER_MONITOR_NAME"
-     }
-    }
-   ],
-   "enabled": true,
-   "propagationTypes": [],
-   "type": "SYNTHETIC_TEST",
-   "valueFormat": "Synthetic"
-  },
-  {
-   "conditions": [
-    {
-     "comparisonInfo": {
-      "caseSensitive": false,
-      "negate": false,
-      "operator": "CONTAINS",
-      "type": "STRING",
-      "value": "easytravel"
+     {
+      "conditions": [
+       {
+        "comparisonInfo": {
+         "caseSensitive": false,
+         "negate": false,
+         "operator": "CONTAINS",
+         "type": "STRING",
+         "value": "easytravel"
+        },
+        "key": {
+         "attribute": "HTTP_MONITOR_NAME"
+        }
+       }
+      ],
+      "enabled": true,
+      "propagationTypes": [],
+      "type": "HTTP_CHECK",
+      "valueFormat": "Synthetic"
      },
-     "key": {
-      "attribute": "HTTP_MONITOR_NAME"
+     {
+      "conditions": [
+       {
+        "comparisonInfo": {
+         "caseSensitive": true,
+         "negate": false,
+         "operator": "CONTAINS",
+         "type": "STRING",
+         "value": "reverseproxy"
+        },
+        "key": {
+         "attribute": "DOCKER_CONTAINER_NAME"
+        }
+       }
+      ],
+      "enabled": true,
+      "propagationTypes": [
+       "PROCESS_GROUP_TO_SERVICE"
+      ],
+      "type": "PROCESS_GROUP",
+      "valueFormat": "FrontEnd"
      }
-    }
-   ],
-   "enabled": true,
-   "propagationTypes": [],
-   "type": "HTTP_CHECK",
-   "valueFormat": "Synthetic"
-  }
- ]
-}
+    ]
+   }
