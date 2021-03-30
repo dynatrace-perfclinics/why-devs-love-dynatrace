@@ -1,0 +1,4 @@
+config:
+- BankService: BankService.json
+BankService:
+- name: BankService

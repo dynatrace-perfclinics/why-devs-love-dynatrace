@@ -1,0 +1,53 @@
+{
+ "aggregation": "FIRST",
+ "confidential": false,
+ "dataSources": [
+  {
+   "capturingAndStorageLocation": "CAPTURE_AND_STORE_ON_SERVER",
+   "enabled": true,
+   "parameterName": "loyalty",
+   "source": "QUERY_PARAMETER",
+   "valueProcessing": {
+    "splitAt": "",
+    "trim": false
+   }
+  },
+  {
+   "enabled": true,
+   "methods": [
+    {
+     "argumentIndex": 2,
+     "capture": "ARGUMENT",
+     "method": {
+      "argumentTypes": [
+       "java.lang.String",
+       "java.lang.String"
+      ],
+      "className": "com.dynatrace.easytravel.business.webservice.BookingService",
+      "methodName": "checkLoyaltyStatus",
+      "modifiers": [],
+      "returnType": "void",
+      "visibility": "PRIVATE"
+     }
+    }
+   ],
+   "source": "METHOD_PARAM",
+   "technology": "JAVA",
+   "valueProcessing": {
+    "splitAt": "",
+    "trim": false
+   }
+  }
+ ],
+ "dataType": "STRING",
+ "enabled": true,
+ "metadata": {
+  "clusterVersion": "1.212.111.20210322-210138",
+  "configurationVersions": [
+   3
+  ]
+ },
+ "name": "{{.name}}",
+ "normalization": "ORIGINAL",
+ "skipPersonalDataMasking": false
+}

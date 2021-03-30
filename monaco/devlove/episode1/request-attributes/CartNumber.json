@@ -1,0 +1,27 @@
+{
+ "aggregation": "FIRST",
+ "confidential": false,
+ "dataSources": [
+  {
+   "capturingAndStorageLocation": "CAPTURE_AND_STORE_ON_SERVER",
+   "enabled": true,
+   "source": "URI",
+   "valueProcessing": {
+    "splitAt": "",
+    "trim": false,
+    "valueExtractorRegex": "/carts/([0-9]*+)"
+   }
+  }
+ ],
+ "dataType": "INTEGER",
+ "enabled": true,
+ "metadata": {
+  "clusterVersion": "1.212.111.20210322-210138",
+  "configurationVersions": [
+   3
+  ]
+ },
+ "name": "{{.name}}",
+ "normalization": "ORIGINAL",
+ "skipPersonalDataMasking": true
+}

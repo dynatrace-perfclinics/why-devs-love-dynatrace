@@ -1,0 +1,38 @@
+config:
+- TestStepCPU: TestStepCPU.json
+- ExceptionsByTestStep: ExceptionsByTestStep.json
+- DBCallsByStepAndServiceEasytravel: DBCallsByStepAndServiceEasytravel.json
+- ExceptionsByServiceEasytravel: ExceptionsByServiceEasytravel.json
+- ExceptionsByStepEasytravel: ExceptionsByStepEasytravel.json
+- TestStepResponseTime: TestStepResponseTime.json
+- TestStepServiceCalls: TestStepServiceCalls.json
+- TestStepFailureRate: TestStepFailureRate.json
+- TestStepDBCalls: TestStepDBCalls.json
+- TestRequestsbyHTTPStatus: TestRequestsbyHTTPStatus.json
+- ExceptionCountbyHostET: ExceptionCountbyHostET.json
+- LoadTestnameResponseTime: LoadTestnameResponseTime.json
+
+DBCallsByStepAndServiceEasytravel:
+- name: DBCallsByStepAndServiceEasytravel
+ExceptionCountbyHostET:
+- name: ExceptionCount_by_Host_ET
+ExceptionsByServiceEasytravel:
+- name: ExceptionsByServiceEasytravel
+ExceptionsByStepEasytravel:
+- name: ExceptionsByStepEasytravel
+ExceptionsByTestStep:
+- name: ExceptionsByTestStep
+LoadTestnameResponseTime:
+- name: Load Testname ResponseTime
+TestRequestsbyHTTPStatus:
+- name: Test Requests by HTTP Status
+TestStepCPU:
+- name: Test Step CPU
+TestStepDBCalls:
+- name: Test Step DB Calls
+TestStepFailureRate:
+- name: Test Step Failure Rate
+TestStepResponseTime:
+- name: Test Step Response Time
+TestStepServiceCalls:
+- name: Test Step Service Calls

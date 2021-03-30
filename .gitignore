@@ -351,3 +351,6 @@ MigrationBackup/
 
 # Backup files
 *-backup/
+
+# My files
+**-mine.**

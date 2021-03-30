@@ -1,0 +1,60 @@
+{
+ "conditions": [
+  {
+   "attribute": "SERVICE_TAG",
+   "comparisonInfo": {
+    "comparison": "TAG_KEY_EQUALS",
+    "negate": false,
+    "type": "TAG",
+    "value": {
+     "context": "CONTEXTLESS",
+     "key": "EasyTravel"
+    }
+   }
+  },
+  {
+   "attribute": "SERVICE_REQUEST_ATTRIBUTE",
+   "comparisonInfo": {
+    "caseSensitive": false,
+    "comparison": "EXISTS",
+    "matchOnChildCalls": true,
+    "negate": false,
+    "requestAttribute": "TestStepName",
+    "source": {
+     "managementZone": null,
+     "serviceTag": {
+      "context": "CONTEXTLESS",
+      "key": "EasyTravel"
+     }
+    },
+    "type": "STRING_REQUEST_ATTRIBUTE",
+    "value": null
+   }
+  }
+ ],
+ "dimensionDefinition": {
+  "dimension": "{RequestAttribute:TestStepName}",
+  "name": "Step",
+  "placeholders": [],
+  "topX": 100,
+  "topXAggregation": "SUM",
+  "topXDirection": "DESCENDING"
+ },
+ "enabled": true,
+ "entityId": null,
+ "managementZones": [],
+ "metadata": {
+  "clusterVersion": "1.212.111.20210322-210138",
+  "configurationVersions": [
+   0
+  ]
+ },
+ "metricDefinition": {
+  "metric": "DATABASE_CHILD_CALL_COUNT",
+  "requestAttribute": null
+ },
+ "name": "{{.name}}",
+ "tsmMetricKey": "calc:service.dbcallsbystepandserviceeasytravel",
+ "unit": "COUNT",
+ "unitDisplayName": ""
+}

@@ -7,12 +7,14 @@
 # - Chromium for the Load generation of the EasyTravel Angular Shop
 # - EasyTravel, Legacy 8080,8079 / Angular 9080 and 80 / WebLauncher 8094 / EasyTravel REST 8091 1697
 
-## Set TENANT and API TOKEN
+## Set DT_TENANT_URL and API TOKEN
 # ---- Define Dynatrace Environment ----
 # Sample: https://{your-domain}/e/{your-environment-id} for managed or https://{your-environment-id}.live.dynatrace.com for SaaS
-TENANT=
-PAASTOKEN=
-APITOKEN=
+DT_TENANT_URL=
+DT_PAAS_TOKEN=
+
+# Not used on this script ATM. Used before for installing the ActigeGate automatically
+DT_API_TOKEN=
 
 # ==================================================
 #      ----- Variables Definitions -----           #
@@ -101,15 +103,9 @@ validateSudo() {
 
 dynatracePrintValidateCredentials() {
   printInfoSection "Printing Dynatrace Credentials"
-  if [ -n "${TENANT}" ]; then
-    printInfo "Shuffle the variables for name convention with Dynatrace"
-    PROTOCOL="https://"
-    DT_TENANT=${TENANT#"$PROTOCOL"}
-    printInfo "Cleaned tenant=$DT_TENANT"
-    DT_API_TOKEN=$APITOKEN
-    DT_PAAS_TOKEN=$PAASTOKEN
+  if [ -n "${DT_TENANT_URL}" ]; then
     printInfo "-------------------------------"
-    printInfo "Dynatrace Tenant: $DT_TENANT"
+    printInfo "Dynatrace Tenant: $DT_TENANT_URL"
     printInfo "Dynatrace API Token: $DT_API_TOKEN"
     printInfo "Dynatrace PaaS Token: $DT_PAAS_TOKEN"
   else
@@ -149,9 +145,9 @@ setupProAliases() {
 }
 
 installDynatrace() {
-  if [ -n "${TENANT}" ]; then
+  if [ -n "${DT_TENANT_URL}" ]; then
     printInfoSection "Installation of OneAgent"
-    wget -nv -O oneagent.sh "$TENANT/api/v1/deployment/installer/agent/unix/default/latest?Api-Token=$PAASTOKEN&arch=x86&flavor=default"
+    wget -nv -O oneagent.sh "$DT_TENANT_URL/api/v1/deployment/installer/agent/unix/default/latest?Api-Token=$DT_PAAS_TOKEN&arch=x86&flavor=default"
     sh oneagent.sh APP_LOG_CONTENT_ACCESS=1 INFRA_ONLY=0
   fi
 }

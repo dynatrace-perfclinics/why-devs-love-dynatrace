@@ -1,0 +1,7 @@
+config:
+- EasyTravelClassic: EasyTravelClassic.json
+- EasyTravelAngular: EasyTravelAngular.json
+EasyTravelAngular:
+- name: EasyTravel Angular
+EasyTravelClassic:
+- name: EasyTravel Classic

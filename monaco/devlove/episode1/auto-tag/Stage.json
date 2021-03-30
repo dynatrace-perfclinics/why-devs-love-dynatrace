@@ -1,0 +1,34 @@
+{
+ "metadata": {
+  "clusterVersion": "1.212.111.20210322-210138",
+  "configurationVersions": [
+   7
+  ]
+ },
+ "name": "{{.name}}",
+ "rules": [
+  {
+   "conditions": [
+    {
+     "comparisonInfo": {
+      "caseSensitive": false,
+      "negate": false,
+      "operator": "CONTAINS",
+      "type": "STRING",
+      "value": "amazona"
+     },
+     "key": {
+      "attribute": "EC2_INSTANCE_PUBLIC_HOST_NAME"
+     }
+    }
+   ],
+   "enabled": true,
+   "propagationTypes": [
+    "PROCESS_GROUP_TO_HOST",
+    "PROCESS_GROUP_TO_SERVICE"
+   ],
+   "type": "PROCESS_GROUP",
+   "valueFormat": "Production"
+  }
+ ]
+}

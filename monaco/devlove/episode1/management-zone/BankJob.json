@@ -1,0 +1,37 @@
+{
+ "dimensionalRules": [],
+ "metadata": {
+  "clusterVersion": "1.212.111.20210322-210138",
+  "configurationVersions": [
+   0
+  ]
+ },
+ "name": "{{.name}}",
+ "rules": [
+  {
+   "conditions": [
+    {
+     "comparisonInfo": {
+      "negate": false,
+      "operator": "EQUALS",
+      "type": "TAG",
+      "value": {
+       "context": "CONTEXTLESS",
+       "key": "Application",
+       "value": "Bankjob"
+      }
+     },
+     "key": {
+      "attribute": "PROCESS_GROUP_TAGS"
+     }
+    }
+   ],
+   "enabled": true,
+   "propagationTypes": [
+    "PROCESS_GROUP_TO_HOST",
+    "PROCESS_GROUP_TO_SERVICE"
+   ],
+   "type": "PROCESS_GROUP"
+  }
+ ]
+}

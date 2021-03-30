@@ -1,0 +1,5 @@
+config:
+- loadtest-overview: loadtest-overview.json
+loadtest-overview:
+- name: "Why Devs 💜 Dynatrace - CICD - Intelligent QualityGates for EasyTravel"
+- owner: "{{ .Env.DT_USER }}"

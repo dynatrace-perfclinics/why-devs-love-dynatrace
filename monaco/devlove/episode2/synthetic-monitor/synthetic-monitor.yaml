@@ -1,0 +1,7 @@
+config:
+- EasytravelFullBooking: EasytravelFullBooking.json
+- EasyTravelRESTLogin: EasyTravelRESTLogin.json
+EasyTravelRESTLogin:
+- name: EasyTravel REST Login
+EasytravelFullBooking:
+- name: Easytravel Full Booking

@@ -1,0 +1,32 @@
+{
+ "enabled": true,
+ "metadata": {
+  "clusterVersion": "1.212.111.20210322-210138",
+  "configurationVersions": [
+   0
+  ]
+ },
+ "name": "{{.name}}",
+ "processGroups": [],
+ "queueEntryPoint": false,
+ "queueEntryPointType": null,
+ "rules": [
+  {
+   "annotations": [],
+   "className": "com.dynatrace.se.bankjob.runner.BankTask",
+   "enabled": true,
+   "fileName": "",
+   "matcher": "EQUALS",
+   "methodRules": [
+    {
+     "argumentTypes": [
+      "java.lang.String",
+      "java.lang.String"
+     ],
+     "methodName": "executeJob",
+     "returnType": "void"
+    }
+   ]
+  }
+ ]
+}

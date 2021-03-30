@@ -1,0 +1,10 @@
+config:
+- LoadTestName: LoadTestName.json
+- TestStepName: TestStepName.json
+- LoadScriptName: LoadScriptName.json
+LoadScriptName:
+- name: LoadScriptName
+LoadTestName:
+- name: LoadTestName
+TestStepName:
+- name: TestStepName

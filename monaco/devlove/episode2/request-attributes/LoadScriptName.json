@@ -1,0 +1,32 @@
+{
+ "aggregation": "FIRST",
+ "confidential": false,
+ "dataSources": [
+  {
+   "capturingAndStorageLocation": "CAPTURE_AND_STORE_ON_SERVER",
+   "enabled": true,
+   "parameterName": "x-dynatrace-test",
+   "source": "REQUEST_HEADER",
+   "valueProcessing": {
+    "extractSubstring": {
+     "delimiter": "LSN=",
+     "endDelimiter": ";",
+     "position": "BETWEEN"
+    },
+    "splitAt": "",
+    "trim": false
+   }
+  }
+ ],
+ "dataType": "STRING",
+ "enabled": true,
+ "metadata": {
+  "clusterVersion": "1.212.111.20210322-210138",
+  "configurationVersions": [
+   3
+  ]
+ },
+ "name": "{{.name}}",
+ "normalization": "ORIGINAL",
+ "skipPersonalDataMasking": true
+}

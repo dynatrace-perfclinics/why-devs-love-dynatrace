@@ -1,0 +1,11 @@
+config:
+- EasyTravel: EasyTravel.json
+- Stage: Stage.json
+- Application: Application.json
+Application:
+- name: Application
+EasyTravel:
+- name: EasyTravel
+Stage:
+- name: Stage
+

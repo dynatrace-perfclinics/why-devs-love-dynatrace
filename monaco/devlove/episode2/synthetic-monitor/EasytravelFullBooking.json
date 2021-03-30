@@ -1,0 +1,553 @@
+{
+ "anomalyDetection": {
+  "loadingTimeThresholds": {
+   "enabled": false,
+   "thresholds": []
+  },
+  "outageHandling": {
+   "globalOutage": true,
+   "localOutage": false,
+   "localOutagePolicy": {
+    "affectedLocations": 1,
+    "consecutiveRuns": 3
+   },
+   "retryOnError": true
+  }
+ },
+ "automaticallyAssignedApps": [
+  "APPLICATION-80CF0133D9A2BA2A"
+ ],
+ "createdFrom": "API",
+ "enabled": true,
+ "entityId": "SYNTHETIC_TEST-5D81DDF442D907C6",
+ "events": [
+  {
+   "entityId": "SYNTHETIC_TEST_STEP-EF7A3AB763CA670E",
+   "name": "Loading of \"http://18.134.95.20/\"",
+   "sequenceNumber": 1
+  },
+  {
+   "entityId": "SYNTHETIC_TEST_STEP-132F44354FF079A5",
+   "name": "click on \"header:login\"",
+   "sequenceNumber": 2
+  },
+  {
+   "entityId": "SYNTHETIC_TEST_STEP-283EA62CCE267ED6",
+   "name": "click on \"loginForm:username\"",
+   "sequenceNumber": 3
+  },
+  {
+   "entityId": "SYNTHETIC_TEST_STEP-306C5AECA890EA4A",
+   "name": "keystrokes on \"loginForm:username\"",
+   "sequenceNumber": 4
+  },
+  {
+   "entityId": "SYNTHETIC_TEST_STEP-008B96955446C6C1",
+   "name": "keystrokes on \"loginForm:password\"",
+   "sequenceNumber": 5
+  },
+  {
+   "entityId": "SYNTHETIC_TEST_STEP-AB3427608C33B781",
+   "name": "click on \"loginForm:submit\"",
+   "sequenceNumber": 6
+  },
+  {
+   "entityId": "SYNTHETIC_TEST_STEP-B6DFF88D6D31EE83",
+   "name": "click on \"search:destination\"",
+   "sequenceNumber": 7
+  },
+  {
+   "entityId": "SYNTHETIC_TEST_STEP-E3DE67AA3467AB70",
+   "name": "keystrokes on \"search:destination\"",
+   "sequenceNumber": 8
+  },
+  {
+   "entityId": "SYNTHETIC_TEST_STEP-3C7DFE843E0A1EDF",
+   "name": "click on \"search:result\"",
+   "sequenceNumber": 9
+  },
+  {
+   "entityId": "SYNTHETIC_TEST_STEP-8EF156B7DF9D431D",
+   "name": "click",
+   "sequenceNumber": 10
+  },
+  {
+   "entityId": "SYNTHETIC_TEST_STEP-70EC76CA08A3B52F",
+   "name": "selectOption",
+   "sequenceNumber": 11
+  },
+  {
+   "entityId": "SYNTHETIC_TEST_STEP-B5B8ED08BD7C383F",
+   "name": "click on \"book:booknow\"",
+   "sequenceNumber": 12
+  },
+  {
+   "entityId": "SYNTHETIC_TEST_STEP-50B10D67A02AF6B6",
+   "name": "click on \"payment:pay\"",
+   "sequenceNumber": 13
+  },
+  {
+   "entityId": "SYNTHETIC_TEST_STEP-506D9CDA11B221C3",
+   "name": "click",
+   "sequenceNumber": 14
+  }
+ ],
+ "frequencyMin": 15,
+ "keyPerformanceMetrics": {
+  "loadActionKpm": "VISUALLY_COMPLETE",
+  "xhrActionKpm": "VISUALLY_COMPLETE"
+ },
+ "locations": [
+  "GEOLOCATION-9999453BE4BDB3CD",
+  "GEOLOCATION-45AB48D9D6925ECC",
+  "GEOLOCATION-924D253001531722"
+ ],
+ "managementZones": [
+  {
+   "id": "701770050211966121",
+   "name": "EasyTravel"
+  }
+ ],
+ "manuallyAssignedApps": [
+  "APPLICATION-80CF0133D9A2BA2A"
+ ],
+ "name": "{{.name}}",
+ "script": {
+  "configuration": {
+   "device": {
+    "deviceName": "Desktop",
+    "orientation": "landscape"
+   }
+  },
+  "events": [
+   {
+    "description": "Loading of \"http://18.134.95.20/\"",
+    "type": "navigate",
+    "url": "http://18.134.95.20/",
+    "wait": {
+     "waitFor": "page_complete"
+    }
+   },
+   {
+    "button": 0,
+    "description": "click on \"header:login\"",
+    "target": {
+     "locators": [
+      {
+       "type": "css",
+       "value": "#header\\:login"
+      },
+      {
+       "type": "css",
+       "value": "a:contains(\"Login\")"
+      },
+      {
+       "type": "css",
+       "value": "html body:nth-child(8) app-root app-dashboard:nth-child(2) app-main-layout div app-header header nav:nth-child(2) a:nth-child(3)"
+      }
+     ]
+    },
+    "type": "click"
+   },
+   {
+    "button": 0,
+    "description": "click on \"loginForm:username\"",
+    "target": {
+     "locators": [
+      {
+       "type": "css",
+       "value": "#loginForm\\:username"
+      },
+      {
+       "type": "css",
+       "value": "input[type=\"text\"][name=\"email\"]"
+      },
+      {
+       "type": "dom",
+       "value": "document.forms[0][\"email\"]"
+      },
+      {
+       "type": "css",
+       "value": ".ng-untouched:eq(1)"
+      },
+      {
+       "type": "css",
+       "value": "html body:nth-child(8) app-root app-login:nth-child(2) app-main-layout div div:nth-child(2) app-login-form form div input"
+      }
+     ]
+    },
+    "type": "click"
+   },
+   {
+    "description": "keystrokes on \"loginForm:username\"",
+    "masked": false,
+    "simulateBlurEvent": true,
+    "target": {
+     "locators": [
+      {
+       "type": "css",
+       "value": "#loginForm\\:username"
+      },
+      {
+       "type": "css",
+       "value": "input[type=\"text\"][name=\"email\"]"
+      },
+      {
+       "type": "dom",
+       "value": "document.forms[0][\"email\"]"
+      },
+      {
+       "type": "css",
+       "value": ".ng-untouched:eq(1)"
+      },
+      {
+       "type": "css",
+       "value": "html body:nth-child(8) app-root app-login:nth-child(2) app-main-layout div div:nth-child(2) app-login-form form div input"
+      }
+     ]
+    },
+    "textValue": "randimil",
+    "type": "keystrokes"
+   },
+   {
+    "description": "keystrokes on \"loginForm:password\"",
+    "masked": true,
+    "simulateBlurEvent": true,
+    "target": {
+     "locators": [
+      {
+       "type": "css",
+       "value": "#loginForm\\:password"
+      },
+      {
+       "type": "css",
+       "value": "input[type=\"password\"][name=\"password\"]"
+      },
+      {
+       "type": "dom",
+       "value": "document.forms[0][1]"
+      },
+      {
+       "type": "css",
+       "value": "html body:nth-child(8) app-root app-login:nth-child(2) app-main-layout div div:nth-child(2) app-login-form form input:nth-child(2)"
+      }
+     ]
+    },
+    "textValue": "U2FsdGVkX1+kUFVoy0y9eCrHbq1ReSPpmspJ1HaMN4s=",
+    "type": "keystrokes"
+   },
+   {
+    "button": 0,
+    "description": "click on \"loginForm:submit\"",
+    "target": {
+     "locators": [
+      {
+       "type": "css",
+       "value": "#loginForm\\:submit"
+      },
+      {
+       "type": "css",
+       "value": "button[type=\"submit\"]"
+      },
+      {
+       "type": "dom",
+       "value": "document.forms[0][2]"
+      },
+      {
+       "type": "css",
+       "value": "button:contains(\"Sign In\")"
+      },
+      {
+       "type": "css",
+       "value": "html body:nth-child(8) app-root app-login:nth-child(2) app-main-layout div div:nth-child(2) app-login-form form button:nth-child(4)"
+      }
+     ]
+    },
+    "type": "click",
+    "wait": {
+     "waitFor": "network"
+    }
+   },
+   {
+    "button": 0,
+    "description": "click on \"search:destination\"",
+    "target": {
+     "locators": [
+      {
+       "type": "css",
+       "value": "#search\\:destination"
+      },
+      {
+       "type": "css",
+       "value": "input[name=\"location\"]"
+      },
+      {
+       "type": "dom",
+       "value": "document.forms[0][\"location\"]"
+      },
+      {
+       "type": "css",
+       "value": ".hero-form-input:eq(0)"
+      },
+      {
+       "type": "css",
+       "value": "html body:nth-child(8) app-root app-dashboard:nth-child(2) app-main-layout div div:nth-child(2) app-hero div section form:nth-child(4) div div input"
+      }
+     ]
+    },
+    "type": "click",
+    "wait": {
+     "waitFor": "network"
+    }
+   },
+   {
+    "description": "keystrokes on \"search:destination\"",
+    "masked": false,
+    "simulateBlurEvent": true,
+    "simulateReturnKey": true,
+    "target": {
+     "locators": [
+      {
+       "type": "css",
+       "value": "#search\\:destination"
+      },
+      {
+       "type": "css",
+       "value": "input[name=\"location\"]"
+      },
+      {
+       "type": "dom",
+       "value": "document.forms[0][\"location\"]"
+      },
+      {
+       "type": "css",
+       "value": ".hero-form-input:eq(0)"
+      },
+      {
+       "type": "css",
+       "value": "html body:nth-child(8) app-root app-dashboard:nth-child(2) app-main-layout div div:nth-child(2) app-hero div section form:nth-child(4) div div input"
+      }
+     ]
+    },
+    "textValue": "Cancun",
+    "type": "keystrokes",
+    "wait": {
+     "waitFor": "network"
+    }
+   },
+   {
+    "button": 0,
+    "description": "click on \"search:result\"",
+    "target": {
+     "locators": [
+      {
+       "type": "css",
+       "value": "#search\\:result"
+      },
+      {
+       "type": "css",
+       "value": "a:contains(\"Turner Center - Cancun\")"
+      },
+      {
+       "type": "css",
+       "value": "html body:nth-child(8) app-root app-search:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) app-offers-list div app-offer:nth-child(2) h3:nth-child(2) a"
+      }
+     ]
+    },
+    "type": "click",
+    "wait": {
+     "waitFor": "network"
+    }
+   },
+   {
+    "button": 0,
+    "description": "click",
+    "target": {
+     "locators": [
+      {
+       "type": "css",
+       "value": "select"
+      },
+      {
+       "type": "dom",
+       "value": "document.forms[0][0]"
+      },
+      {
+       "type": "css",
+       "value": ".ng-untouched:eq(1)"
+      },
+      {
+       "type": "css",
+       "value": "html body:nth-child(8) app-root app-journey:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) div div:nth-child(2) form:nth-child(2) select"
+      },
+      {
+       "type": "css",
+       "value": "body app-root app-journey app-main-layout.search-page div.page div.page-content main.page-section div.widget div.journey-actions form.ng-untouched select.ng-untouched"
+      }
+     ]
+    },
+    "type": "click"
+   },
+   {
+    "description": "selectOption",
+    "selections": [
+     {
+      "index": 3,
+      "value": "4"
+     }
+    ],
+    "target": {
+     "locators": [
+      {
+       "type": "css",
+       "value": "select"
+      },
+      {
+       "type": "dom",
+       "value": "document.forms[0][0]"
+      },
+      {
+       "type": "css",
+       "value": ".ng-untouched:eq(1)"
+      },
+      {
+       "type": "css",
+       "value": "html body:nth-child(8) app-root app-journey:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) div div:nth-child(2) form:nth-child(2) select"
+      },
+      {
+       "type": "css",
+       "value": "body app-root app-journey app-main-layout.search-page div.page div.page-content main.page-section div.widget div.journey-actions form.ng-untouched select.ng-untouched"
+      }
+     ]
+    },
+    "type": "selectOption"
+   },
+   {
+    "button": 0,
+    "description": "click on \"book:booknow\"",
+    "target": {
+     "locators": [
+      {
+       "type": "css",
+       "value": "button[name=\"book:booknow\"]"
+      },
+      {
+       "type": "dom",
+       "value": "document.forms[0][1]"
+      },
+      {
+       "type": "css",
+       "value": "button:contains(\"Book Now\")"
+      },
+      {
+       "type": "css",
+       "value": "html body:nth-child(8) app-root app-journey:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) div div:nth-child(2) form:nth-child(2) button:nth-child(2)"
+      },
+      {
+       "type": "css",
+       "value": "body app-root app-journey app-main-layout.search-page div.page div.page-content main.page-section div.widget div.journey-actions form.ng-untouched button"
+      }
+     ]
+    },
+    "type": "click",
+    "wait": {
+     "waitFor": "network"
+    }
+   },
+   {
+    "button": 0,
+    "description": "click on \"payment:pay\"",
+    "target": {
+     "locators": [
+      {
+       "type": "css",
+       "value": "button[name=\"payment:pay\"]"
+      },
+      {
+       "type": "css",
+       "value": "button:contains(\"Pay $1165.3\")"
+      },
+      {
+       "type": "css",
+       "value": "html body:nth-child(8) app-root app-book-journey:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) div:nth-child(3) div:nth-child(2) p:nth-child(4) button"
+      },
+      {
+       "type": "css",
+       "value": "body app-root app-book-journey app-main-layout.search-page div.page div.page-content main.page-section div.steps div.step p button"
+      }
+     ]
+    },
+    "type": "click"
+   },
+   {
+    "button": 0,
+    "description": "click",
+    "target": {
+     "locators": [
+      {
+       "type": "css",
+       "value": ".fa:eq(1)"
+      },
+      {
+       "type": "css",
+       "value": "fa[name=\"lock\"] i"
+      },
+      {
+       "type": "css",
+       "value": "body app-root app-book-journey app-main-layout.search-page div.page div.page-content main.page-section div.steps app-billing.step div div.card-panel h2.card-title div fa.autofill-icon i.fa"
+      }
+     ]
+    },
+    "type": "click"
+   },
+   {
+    "button": 0,
+    "description": "click on \"creditCard:submit\"",
+    "target": {
+     "locators": [
+      {
+       "type": "css",
+       "value": "button[type=\"button\"][name=\"creditCard:submit\"]"
+      },
+      {
+       "type": "css",
+       "value": "button:contains(\"Book Journey for $1165.3\")"
+      },
+      {
+       "type": "css",
+       "value": ".place-order"
+      },
+      {
+       "type": "css",
+       "value": "html body:nth-child(8) app-root app-book-journey:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) div:nth-child(3) app-billing:nth-child(3) div div div:nth-child(6) button"
+      },
+      {
+       "type": "css",
+       "value": "body app-root app-book-journey app-main-layout.search-page div.page div.page-content main.page-section div.steps app-billing.step div div.card-panel div.form-row button.place-order"
+      }
+     ]
+    },
+    "type": "click",
+    "wait": {
+     "waitFor": "network"
+    }
+   }
+  ],
+  "type": "clickpath",
+  "version": "1.0"
+ },
+ "tags": [
+  {
+   "context": "CONTEXTLESS",
+   "key": "EasyTravel",
+   "source": "RULE_BASED",
+   "value": "Synthetic"
+  },
+  {
+   "context": "CONTEXTLESS",
+   "key": "easytravel",
+   "source": "USER"
+  }
+ ],
+ "type": "BROWSER"
+}

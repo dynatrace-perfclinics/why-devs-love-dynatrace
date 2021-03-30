@@ -1,0 +1,93 @@
+{
+ "anomalyDetection": {
+  "loadingTimeThresholds": {
+   "enabled": false,
+   "thresholds": [
+    {
+     "type": "TOTAL",
+     "valueMs": 0
+    }
+   ]
+  },
+  "outageHandling": {
+   "globalOutage": true,
+   "localOutage": false,
+   "localOutagePolicy": {
+    "affectedLocations": 1,
+    "consecutiveRuns": 3
+   }
+  }
+ },
+ "automaticallyAssignedApps": [],
+ "createdFrom": "GUI",
+ "enabled": true,
+ "entityId": "HTTP_CHECK-E57C6EE2FA242892",
+ "frequencyMin": 5,
+ "locations": [
+  "GEOLOCATION-5BD7AEF63C63DA02",
+  "GEOLOCATION-03E96F97A389F96A",
+  "GEOLOCATION-3EDACE25AFA8E41B"
+ ],
+ "managementZones": [
+  {
+   "id": "701770050211966121",
+   "name": "EasyTravel"
+  }
+ ],
+ "manuallyAssignedApps": [
+  "APPLICATION-80CF0133D9A2BA2A"
+ ],
+ "name": "{{.name}}",
+ "requests": [
+  {
+   "entityId": "HTTP_CHECK_STEP-97ACF3AE06B5283D",
+   "name": "EasyTravel REST Login",
+   "sequenceNumber": 1
+  }
+ ],
+ "script": {
+  "requests": [
+   {
+    "configuration": {
+     "acceptAnyCertificate": true,
+     "followRedirects": true,
+     "requestHeaders": [
+      {
+       "name": "Content-Type",
+       "value": "application/json"
+      }
+     ]
+    },
+    "description": "EasyTravel REST Login",
+    "method": "POST",
+    "requestBody": "{\n\t\"username\": \"maria\",\n\t\"password\": \"maria\"\n}",
+    "url": "http://18.134.95.20/easytravel/rest/login",
+    "validation": {
+     "rules": [
+      {
+       "passIfFound": true,
+       "type": "patternConstraint",
+       "value": "maria"
+      },
+      {
+       "passIfFound": false,
+       "type": "httpStatusesList",
+       "value": "\u003e=400"
+      }
+     ],
+     "rulesChaining": "or"
+    }
+   }
+  ],
+  "version": "1.0"
+ },
+ "tags": [
+  {
+   "context": "CONTEXTLESS",
+   "key": "EasyTravel",
+   "source": "RULE_BASED",
+   "value": "Synthetic"
+  }
+ ],
+ "type": "HTTP"
+}

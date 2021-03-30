@@ -1,0 +1,7 @@
+config:
+- BankJob: BankJob.json
+- EasyTravel: EasyTravel.json
+BankJob:
+- name: BankJob
+EasyTravel:
+- name: EasyTravel

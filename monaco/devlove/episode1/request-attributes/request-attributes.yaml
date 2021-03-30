@@ -1,0 +1,22 @@
+config:
+- CartNumber: CartNumber.json
+- JobType: JobType.json
+- BankName: BankName.json
+- Revenue: Revenue.json
+- LoyaltyStatus: LoyaltyStatus.json
+- Destination: Destination.json
+- Developer: Developer.json
+BankName:
+- name: BankName
+CartNumber:
+- name: CartNumber
+Destination:
+- name: Destination
+Developer:
+- name: Developer
+JobType:
+- name: JobType
+LoyaltyStatus:
+- name: Loyalty Status
+Revenue:
+- name: Revenue
