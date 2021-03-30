@@ -10,7 +10,7 @@ DT_TENANT_URL=
 DT_API_TOKEN=
 
 # DT_USER (Your login username in the environment, Click on the top right on the people icon and see your id, it can be your email or a username)
-DT_USER=admin
+DT_USER=
 
 echo "usage 'source set_dt_variables.sh'"
 
