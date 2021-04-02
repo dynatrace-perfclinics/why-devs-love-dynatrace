@@ -3,3 +3,4 @@ config:
 loadtest-overview:
 - name: "Why Devs 💜 Dynatrace - CICD - Intelligent QualityGates for EasyTravel"
 - owner: "{{ .Env.DT_USER }}"
+- easytravelip: "http://{{ .Env.DT_EASYTRAVELIP }}"
