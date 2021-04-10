@@ -26,31 +26,35 @@ pipe_log=true
 
 USER="ubuntu"
 
+programname=$0
+
 # ---- Workshop User  ----
 # The flag 'create_workshop_user'=true is per default set to false. If it's set to to it'll clone the home directory from USER and allow SSH login with the given text password )
 create_workshop_user=false
 NEWUSER="dynatrace"
 NEWPWD="secr3t"
 
-## ----  Write all output to the logfile ----
-if [ "$pipe_log" = true ]; then
-  echo "Piping all output to logfile $LOGFILE"
-  echo "Type 'less +F $LOGFILE' for viewing the output of installation on realtime"
-  echo "If you did not send the job to the background, type \"CTRL + Z\" and \"bg\""
-  echo "CTRL + Z (for pausing this job)"
-  echo "then"
-  echo "bg (for resuming back this job and send it to the background)"
-  # Saves file descriptors so they can be restored to whatever they were before redirection or used
-  # themselves to output to whatever they were before the following redirect.
-  exec 3>&1 4>&2
-  # Restore file descriptors for particular signals. Not generally necessary since they should be restored when the sub-shell exits.
-  trap 'exec 2>&4 1>&3' 0 1 2 3
-  # Redirect stdout to file log.out then redirect stderr to stdout. Note that the order is important when you
-  # want them going to the same file. stdout must be redirected before stderr is redirected to stdout.
-  exec 1>$LOGFILE 2>&1
-else
-  echo "Not piping stdout stderr to the logfile, writing the installation to the console"
-fi
+pipeLog() {
+  ## ----  Write all output to the logfile ----
+  if [ "$pipe_log" = true ]; then
+    echo "Piping all output to logfile $LOGFILE"
+    echo "Type 'less +F $LOGFILE' for viewing the output of installation on realtime"
+    echo "If you did not send the job to the background, type \"CTRL + Z\" and \"bg\""
+    echo "CTRL + Z (for pausing this job)"
+    echo "then"
+    echo "bg (for resuming back this job and send it to the background)"
+    # Saves file descriptors so they can be restored to whatever they were before redirection or used
+    # themselves to output to whatever they were before the following redirect.
+    exec 3>&1 4>&2
+    # Restore file descriptors for particular signals. Not generally necessary since they should be restored when the sub-shell exits.
+    trap 'exec 2>&4 1>&3' 0 1 2 3
+    # Redirect stdout to file log.out then redirect stderr to stdout. Note that the order is important when you
+    # want them going to the same file. stdout must be redirected before stderr is redirected to stdout.
+    exec 1>$LOGFILE 2>&1
+  else
+    echo "Not piping stdout stderr to the logfile, writing the installation to the console"
+  fi
+}
 
 # Comfortable function for setting the sudo user.
 if [ -n "${SUDO_USER}" ]; then
@@ -153,7 +157,6 @@ installDynatrace() {
 }
 
 createWorkshopUser() {
-
   if [ "$create_workshop_user" = true ]; then
     printInfoSection "Creating Workshop User from user($USER) into($NEWUSER)"
     homedirectory=$(eval echo ~$USER)
@@ -211,11 +214,17 @@ server {
   docker run -p 80:80 -v /home/$USER/nginx:/etc/nginx/conf.d/:ro -d --name reverseproxy nginx:1.15
 }
 
+removeEasyTravel() {
+  printInfoSection "Remove EasyTravel"
+  rm -rf easytravel-2.0.0-x64
+}
+
 installEasyTravel() {
   printInfoSection "Download, install and configure EasyTravel"
   cd /home/$USER
   wget -nv -O dynatrace-easytravel-linux-x86_64.jar http://dexya6d9gs5s.cloudfront.net/latest/dynatrace-easytravel-linux-x86_64.jar
   java -jar dynatrace-easytravel-linux-x86_64.jar -y
+  rm dynatrace-easytravel-linux-x86_64.jar
   chmod 755 -R easytravel-2.0.0-x64
   chown $USER:$USER -R easytravel-2.0.0-x64
   printInfo "Configuring EasyTravel Memory Settings, Angular Shop and Weblauncher."
@@ -246,7 +255,6 @@ installEasyTravel() {
   [[ -f /tmp/weblauncher.log ]] && echo "***EasyTravel launched**" || echo "***Problem launching EasyTravel **"
   date
   echo "installation done"
-
 }
 
 printInstalltime() {
@@ -255,15 +263,14 @@ printInstalltime() {
   printInfo "It took $(($DURATION / 60)) minutes and $(($DURATION % 60)) seconds"
 }
 
-restartAll() {
-  killall java
+startAll() {
   docker start reverseproxy bankjob
   USER=ubuntu
   su -c "sh /home/$USER/easytravel-2.0.0-x64/weblauncher/weblauncher.sh > /tmp/weblauncher.log 2>&1 &" $USER
-
 }
 
 doInstallation() {
+  pipeLog
   SECONDS=0
   echo ""
   printInfoSection "Init Installation at $(date) by user $(whoami)"
@@ -283,7 +290,69 @@ doInstallation() {
   printInstalltime
 }
 
-# ==================================================
+killEasyTravel() {
+  printInfo "Kill all EasyTravel Processes"
+  killall java
+  ps -ef | grep -i easytravel | awk '{print "sudo kill -9 "$2}' | sh
+  printInfo "done killing all EasyTravel Processes"
+}
+
+upgradeEasyTravel() {
+  printInfoSection "Upgrade EasyTravel"
+  removeEasyTravel
+  installEasyTravel
+}
+
+printUsage() {
+  printInfoSection "usage: $programname [-ukswhi] "
+  printInfo "  -u      upgrade EasyTravel"
+  printInfo "  -k      kill all processes EasyTravel"
+  printInfo "  -s      start EasyTravel and Docker Containers"
+  printInfo "  -w      create workshop user"
+  printInfo "  -h      print this help"
+  printInfo "  -i      install EasyTravel and OneAgent in interactive mode (no pipelog)"
+  printInfo "          no parameters install EasyTravel and OneAgent"
+}
+
+while getopts ":ukswhi" opt; do
+  case $opt in
+  u)
+    upgradeEasyTravel
+    exit 0
+    ;;
+  k)
+    killEasyTravel
+    exit 0
+    ;;
+  s)
+    startAll
+    exit 0
+    ;;
+  i)
+    pipe_log=false
+    doInstallation
+    exit 0
+    ;;
+  w)
+    create_workshop_user=true
+    createWorkshopUser
+    exit 0
+    ;;
+  h)
+    printUsage
+    exit 0
+    ;;
+  \?)
+    echo "Invalid option: -$OPTARG" >&2
+    printUsage
+    echo "exiting..."
+    exit 1
+    ;;
+  esac
+done
+
+# =================================================
 #  ----- Call the Installation Function -----      #
 # ==================================================
+printUsage
 doInstallation
