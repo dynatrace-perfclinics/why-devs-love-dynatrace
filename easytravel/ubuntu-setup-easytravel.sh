@@ -246,13 +246,8 @@ installEasyTravel() {
   sed -i 's/config.maximumChromeDriversMobile=10/config.maximumChromeDriversMobile=1/g' /home/$USER/easytravel-2.0.0-x64/resources/easyTravelConfig.properties
   sed -i 's/config.reUseChromeDriverFrequency=4/config.reUseChromeDriverFrequency=1/g' /home/$USER/easytravel-2.0.0-x64/resources/easyTravelConfig.properties
   #sed -i 's/config.angularFrontendPortRangeStart=9080/config.angularFrontendPortRangeStart=80/g' /easytravel-2.0.0-x64/resources/easyTravelConfig.properties
-
-  # Fix finding the Java package
-  sed -i "s/JAVA_BIN=..\\/jre\\/bin\\/java/JAVA_BIN=\\/usr\\/bin\\/java/g" /home/$USER/easytravel-2.0.0-x64/weblauncher/weblauncher.sh
-
-  su -c "sh /home/$USER/easytravel-2.0.0-x64/weblauncher/weblauncher.sh > /tmp/weblauncher.log 2>&1 &" $USER
-
-  [[ -f /tmp/weblauncher.log ]] && echo "***EasyTravel launched**" || echo "***Problem launching EasyTravel **"
+  
+  startAll
   date
   echo "installation done"
 }
@@ -264,9 +259,11 @@ printInstalltime() {
 }
 
 startAll() {
+  printInfoSection "Start EasyTravel and docker Containers"
   docker start reverseproxy bankjob
-  USER=ubuntu
+  sed -i "s/JAVA_BIN=..\\/jre\\/bin\\/java/JAVA_BIN=\\/usr\\/bin\\/java/g" /home/$USER/easytravel-2.0.0-x64/weblauncher/weblauncher.sh
   su -c "sh /home/$USER/easytravel-2.0.0-x64/weblauncher/weblauncher.sh > /tmp/weblauncher.log 2>&1 &" $USER
+  [[ -f /tmp/weblauncher.log ]] && echo "***EasyTravel launched**" || echo "***Problem launching EasyTravel **"
 }
 
 doInstallation() {
@@ -291,7 +288,7 @@ doInstallation() {
 }
 
 killEasyTravel() {
-  printInfo "Kill all EasyTravel Processes"
+  printInfoSection "Kill all EasyTravel Processes"
   killall java
   ps -ef | grep -i easytravel | awk '{print "sudo kill -9 "$2}' | sh
   printInfo "done killing all EasyTravel Processes"
