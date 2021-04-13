@@ -16,6 +16,8 @@ DT_PAAS_TOKEN=
 # Not used on this script ATM. Used before for installing the ActigeGate automatically
 DT_API_TOKEN=
 
+# For 3rd party server (images, cdn...). by default it takes the public IP
+DOMAIN=
 # ==================================================
 #      ----- Variables Definitions -----           #
 # ==================================================
@@ -180,43 +182,113 @@ installReverseProxy() {
   printInfoSection "Configuring reverse proxy"
   mkdir /home/$USER/nginx
   #
-  echo "upstream angular {
+  echo 'upstream angular {
     server   172.17.0.1:9080;
 }
+
 upstream admin {
     server   172.17.0.1:8094;
 }
 upstream classic {
     server   172.17.0.1:8079;
 }
+upstream rest {
+    server   172.17.0.1:8091;
+}
+upstream 3rdparty {
+    server   172.17.0.1:8092;
+}
 
 server {
     listen		0.0.0.0:80;
+    # By default we show EasyTravel Angular
     server_name	localhost;
-
+    
     location / {
       proxy_pass	http://angular/;
       proxy_pass_request_headers  on;
+      proxy_set_header   Host $host;
     }
-    location /classic/ {
-      proxy_pass	http://classic/;
-      proxy_pass_request_headers  on;
-    }
-    location /amp/ {
-      proxy_pass	http://classic/amp/;
-      proxy_pass_request_headers  on;
-    }
-      location /admin/ {
-      proxy_pass	http://admin/;
-      proxy_pass_request_headers  on;
-    }
-}" >/home/$USER/nginx/easytravel-proxy.conf
-  docker run -p 80:80 -v /home/$USER/nginx:/etc/nginx/conf.d/:ro -d --name reverseproxy nginx:1.15
+}
+
+server {
+        listen 80;
+        listen [::]:80;
+        server_name classic.*;
+
+        location / {
+          proxy_pass	http://classic/;
+          proxy_pass_request_headers  on;
+          proxy_set_header   Host $host;
+        }
+}
+
+server {
+        listen 80;
+        listen [::]:80;
+        server_name admin.*;
+        location / {
+          proxy_pass	http://admin/;
+          proxy_pass_request_headers  on;
+          proxy_set_header   Host $host;
+        }
+}
+
+server {
+        listen 80;
+        listen [::]:80;
+        server_name rest.*;
+        location / {
+          proxy_pass	http://rest/;
+          proxy_pass_request_headers  on;
+          proxy_set_header   Host $host;
+        }
+}
+
+server {
+        listen 80;
+        listen [::]:80;
+        # By default we show EasyTravel Angular
+        server_name amp.*;
+        location / {
+          proxy_pass	http://classic/amp/;
+          proxy_pass_request_headers  on;
+          proxy_set_header   Host $host;
+        }
+}
+
+server {
+        listen 80;
+        listen [::]:80;
+        server_name cdn.*;
+        server_name social.*;
+        server_name 3rdparty.*;
+        location / {
+          proxy_pass	http://3rdparty/;
+          proxy_pass_request_headers  on;
+          proxy_set_header   Host $host;
+        }
+}' >/home/$USER/nginx/easytravel-proxy.conf
+  docker run -p 80:80 -v /home/$USER/nginx:/etc/nginx/conf.d/:ro -d --name reverseproxy nginx:1.18
 }
 
 removeEasyTravel() {
   printInfoSection "Remove EasyTravel"
   rm -rf easytravel-2.0.0-x64
+}
+
+setupMagicDomainPublicIp() {
+  printInfoSection "Setting up the Domain"
+  if [ -n "${DOMAIN}" ]; then
+    printInfo "The following domain is defined: $DOMAIN"
+    export DOMAIN
+  else
+    printInfo "No DOMAIN is defined, converting the public IP in a magic nip.io domain"
+    PUBLIC_IP=$(curl -s ifconfig.me)
+    PUBLIC_IP_AS_DOM=$(echo $PUBLIC_IP | sed 's~\.~-~g')
+    export DOMAIN="${PUBLIC_IP_AS_DOM}.nip.io"
+    printInfo "Magic Domain: $DOMAIN"
+  fi
 }
 
 installEasyTravel() {
@@ -228,24 +300,36 @@ installEasyTravel() {
   chmod 755 -R easytravel-2.0.0-x64
   chown $USER:$USER -R easytravel-2.0.0-x64
   printInfo "Configuring EasyTravel Memory Settings, Angular Shop and Weblauncher."
+  # Config File
+  ETCONFIG=/home/$USER/easytravel-2.0.0-x64/resources/easyTravelConfig.properties
+  printInfo "This is the configuration file: $ETCONFIG"
+  
+  setupMagicDomainPublicIp
+  printInfo "This is the DOMAIN: $DOMAIN"
+
   # Configuring EasyTravel Memory Settings, Angular Shop and Weblauncher.
-  sed -i 's/apmServerDefault=Classic/apmServerDefault=APM/g' /home/$USER/easytravel-2.0.0-x64/resources/easyTravelConfig.properties
-  sed -i 's/config.frontendJavaopts=-Xmx160m/config.frontendJavaopts=-Xmx320m/g' /home/$USER/easytravel-2.0.0-x64/resources/easyTravelConfig.properties
-  sed -i 's/config.backendJavaopts=-Xmx64m/config.backendJavaopts=-Xmx320m/g' /home/$USER/easytravel-2.0.0-x64/resources/easyTravelConfig.properties
-  sed -i 's/config.autostart=/config.autostart=Standard with REST Service and Angular2 frontend/g' /home/$USER/easytravel-2.0.0-x64/resources/easyTravelConfig.properties
-  sed -i 's/config.autostartGroup=/config.autostartGroup=UEM/g' /home/$USER/easytravel-2.0.0-x64/resources/easyTravelConfig.properties
-  sed -i 's/config.baseLoadB2BRatio=0.1/config.baseLoadB2BRatio=0/g' /home/$USER/easytravel-2.0.0-x64/resources/easyTravelConfig.properties
-  sed -i 's/config.baseLoadCustomerRatio=0.25/config.baseLoadCustomerRatio=0.1/g' /home/$USER/easytravel-2.0.0-x64/resources/easyTravelConfig.properties
-  sed -i 's/config.baseLoadMobileNativeRatio=0.1/config.baseLoadMobileNativeRatio=0/g' /home/$USER/easytravel-2.0.0-x64/resources/easyTravelConfig.properties
-  sed -i 's/config.baseLoadMobileBrowserRatio=0.25/config.baseLoadMobileBrowserRatio=0/g' /home/$USER/easytravel-2.0.0-x64/resources/easyTravelConfig.properties
-  sed -i 's/config.baseLoadHotDealServiceRatio=0.25/config.baseLoadHotDealServiceRatio=1/g' /home/$USER/easytravel-2.0.0-x64/resources/easyTravelConfig.properties
-  sed -i 's/config.baseLoadIotDevicesRatio=0.1/config.baseLoadIotDevicesRatio=0/g' /home/$USER/easytravel-2.0.0-x64/resources/easyTravelConfig.properties
-  sed -i 's/config.baseLoadHeadlessAngularRatio=0.0/config.baseLoadHeadlessAngularRatio=0.25/g' /home/$USER/easytravel-2.0.0-x64/resources/easyTravelConfig.properties
-  sed -i 's/config.baseLoadHeadlessMobileAngularRatio=0.0/config.baseLoadHeadlessMobileAngularRatio=0.1/g' /home/$USER/easytravel-2.0.0-x64/resources/easyTravelConfig.properties
-  sed -i 's/config.maximumChromeDrivers=10/config.maximumChromeDrivers=1/g' /home/$USER/easytravel-2.0.0-x64/resources/easyTravelConfig.properties
-  sed -i 's/config.maximumChromeDriversMobile=10/config.maximumChromeDriversMobile=1/g' /home/$USER/easytravel-2.0.0-x64/resources/easyTravelConfig.properties
-  sed -i 's/config.reUseChromeDriverFrequency=4/config.reUseChromeDriverFrequency=1/g' /home/$USER/easytravel-2.0.0-x64/resources/easyTravelConfig.properties
-  #sed -i 's/config.angularFrontendPortRangeStart=9080/config.angularFrontendPortRangeStart=80/g' /easytravel-2.0.0-x64/resources/easyTravelConfig.properties
+  #sed -i 's,<configurationId>=.*,<configurationId>=value,g' $ETCONFIG
+  sed -i 's,apmServerDefault=.*,apmServerDefault=APM,g' $ETCONFIG
+  sed -i 's,config.frontendJavaopts=.*,config.frontendJavaopts=-Xmx320m,g' $ETCONFIG
+  sed -i 's,config.backendJavaopts=.*,config.backendJavaopts=-Xmx320m,g' $ETCONFIG
+  sed -i 's,config.autostart=.*,config.autostart=Standard with REST Service and Angular2 frontend,g' $ETCONFIG
+  sed -i 's,config.autostartGroup=.*,config.autostartGroup=UEM,g' $ETCONFIG
+  sed -i 's,config.baseLoadB2BRatio=.*,config.baseLoadB2BRatio=0,g' $ETCONFIG
+  sed -i 's,config.baseLoadCustomerRatio=.*,config.baseLoadCustomerRatio=0.1,g' $ETCONFIG
+  sed -i 's,config.baseLoadMobileNativeRatio=.*,config.baseLoadMobileNativeRatio=0,g' $ETCONFIG
+  sed -i 's,config.baseLoadMobileBrowserRatio=.*,config.baseLoadMobileBrowserRatio=0,g' $ETCONFIG
+  sed -i 's,config.baseLoadHotDealServiceRatio=.*,config.baseLoadHotDealServiceRatio=1,g' $ETCONFIG
+  sed -i 's,config.baseLoadIotDevicesRatio=.*,config.baseLoadIotDevicesRatio=0,g' $ETCONFIG
+  sed -i 's,config.baseLoadHeadlessAngularRatio=.*,config.baseLoadHeadlessAngularRatio=0.1,g' $ETCONFIG
+  sed -i 's,config.baseLoadHeadlessMobileAngularRatio=.*,config.baseLoadHeadlessMobileAngularRatio=0.1,g' $ETCONFIG
+  sed -i 's,config.maximumChromeDrivers=.*,config.maximumChromeDrivers=1,g' $ETCONFIG
+  sed -i 's,config.maximumChromeDriversMobile=.*,config.maximumChromeDriversMobile=1,g' $ETCONFIG
+  sed -i 's,config.reUseChromeDriverFrequency=.*,config.reUseChromeDriverFrequency=1,g' $ETCONFIG
+  
+  # Setting up 3rd party Domain
+  sed -i 's,config.thirdpartyUrl=.*,config.thirdpartyUrl=http://3rdparty.'"$DOMAIN"',g' $ETCONFIG
+  sed -i 's,config.thirdpartyCdnUrl=.*,config.thirdpartyCdnUrl=http://cdn.'"$DOMAIN"',g' $ETCONFIG
+  sed -i 's,config.thirdpartySocialMediaUrl=.*,config.thirdpartySocialMediaUrl=http://social.'"$DOMAIN"',g' $ETCONFIG
   
   startAll
   date
