@@ -61,7 +61,7 @@
     "description": "EasyTravel REST Login",
     "method": "POST",
     "requestBody": "{\n\t\"username\": \"maria\",\n\t\"password\": \"maria\"\n}",
-    "url": "http://18.134.95.20/easytravel/rest/login",
+    "url": "http://angular.{{ .easytravel_mip }}/easytravel/rest/login",
     "validation": {
      "rules": [
       {

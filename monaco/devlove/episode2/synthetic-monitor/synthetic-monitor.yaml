@@ -3,5 +3,7 @@ config:
 - EasyTravelRESTLogin: EasyTravelRESTLogin.json
 EasyTravelRESTLogin:
 - name: EasyTravel REST Login
+- easytravel_mip: "{{ .Env.DT_EASYTRAVEL_MIP }}"
 EasytravelFullBooking:
 - name: Easytravel Full Booking
+- easytravel_mip: "{{ .Env.DT_EASYTRAVEL_MIP }}"

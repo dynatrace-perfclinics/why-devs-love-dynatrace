@@ -33,7 +33,7 @@
     "width": 798
    },
    "configured": true,
-   "markdown": "[📦 EasyTravel Build artifacts](https://dev.azure.com/dynatracedevops/easytravel-cicd/_build?definitionId=1) - [🥽 AzureDevOps Pipeline](https://dev.azure.com/dynatracedevops/easytravel-cicd/_release?_a=releases\u0026view=mine\u0026definitionId=2)  -  [🌉 Keptn Bridge](https://keptn.sh) \n- [Azure Git](https://dev.azure.com/dynatracebuildingthefuture/_git/devopsdemo) - [Keptn Git](https://keptn.sh) - [👱‍♀️ voiceOps](https://assistant.dynatrace.com)",
+   "markdown": "[📦 AzureDevOps BuildPipe](https://dev.azure.com/dynatracedevops/easytravel-cicd/_build?definitionId=1) - [🥽 AzureDevOps ReleasePipe](https://dev.azure.com/dynatracedevops/easytravel-cicd/_release?_a=releases\u0026view=mine\u0026definitionId=2)  - [AzureDevOps Git](https://dev.azure.com/dynatracebuildingthefuture/_git/devopsdemo) - * - [🌉 Keptn Bridge](http://keptn.{{ .kiab_mip }}/bridge/project/)  - [👱‍♀️ voiceOps](https://assistant.dynatrace.com)",
    "name": "Markdown",
    "tileFilter": {
     "managementZone": null,
@@ -454,22 +454,6 @@
   {
    "bounds": {
     "height": 38,
-    "left": 380,
-    "top": 38,
-    "width": 190
-   },
-   "configured": true,
-   "markdown": "[✈️ easytravel-staging.com](http://easytravel.demo.dynatrace.com/)",
-   "name": "Markdown",
-   "tileFilter": {
-    "managementZone": null,
-    "timeframe": null
-   },
-   "tileType": "MARKDOWN"
-  },
-  {
-   "bounds": {
-    "height": 38,
     "left": 342,
     "top": 266,
     "width": 456
@@ -679,9 +663,9 @@
     "defaultName": "Custom chart",
     "filtersPerEntityType": {
      "SYNTHETIC_BROWSER_MONITOR": {
-      "WEBCHECK_APPLICATION": [
-       "APPLICATION-80CF0133D9A2BA2A:EasyTravel Angular"
-      ]
+        "AUTO_TAGS": [
+            "EasyTravel:Synthetic"
+           ]
      }
     },
     "type": "MIXED"
@@ -750,7 +734,7 @@
     "filtersPerEntityType": {
      "SYNTHETIC_HTTPCHECK": {
       "AUTO_TAGS": [
-       "EasyTravel"
+       "EasyTravel:Synthetic"
       ]
      }
     },
@@ -849,22 +833,6 @@
     "timeframe": null
    },
    "tileType": "CUSTOM_CHARTING"
-  },
-  {
-   "bounds": {
-    "height": 38,
-    "left": 190,
-    "top": 38,
-    "width": 190
-   },
-   "configured": true,
-   "markdown": "[⏱Deployment UTF](https://github.com/sergiohinojosa/azuredevops-easytravel/blob/master/set_deployment_var.sh)\n\n",
-   "name": "Markdown",
-   "tileFilter": {
-    "managementZone": null,
-    "timeframe": null
-   },
-   "tileType": "MARKDOWN"
   },
   {
    "bounds": {
@@ -1409,10 +1377,10 @@
     "height": 38,
     "left": 0,
     "top": 38,
-    "width": 152
+    "width": 608
    },
    "configured": true,
-   "markdown": "[🙋‍♂️collaboration]()",
+   "markdown": " [⏱Deployment UTF](https://github.com/sergiohinojosa/azuredevops-easytravel/blob/master/set_deployment_var.sh) - [ ✈️ classic.easytravel](http://classic.{{ .easytravel_mip }}) - [✈️ angular.easytravel](http://angular.{{ .easytravel_mip }}) - [✈️ admin.easytravel](http://admin.{{ .easytravel_mip }}) ",
    "name": "Markdown",
    "tileFilter": {
     "managementZone": null,
@@ -1428,7 +1396,7 @@
     "width": 190
    },
    "configured": true,
-   "markdown": "[ 📊performance overview]()",
+   "markdown": "[ 📊performance overview]( #dashboard;gtf=today;gf=all;id={{ .performancedashboard_id }})",
    "name": "Markdown",
    "tileFilter": {
     "managementZone": null,

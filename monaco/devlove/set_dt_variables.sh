@@ -12,6 +12,12 @@ DT_API_TOKEN=
 # DT_USER (Your login username in the environment, Click on the top right on the people icon and see your id, it can be your email or a username)
 DT_USER=
 
+# Magic IP for easytravel. Example if public ip == 1.2.3.4 then Magic IP => 1-2-3-4.nip.io 
+DT_EASYTRAVEL_MIP=
+
+# Magic IP for KIAB (Keptn in a Box). Example if public ip == 1.2.3.4 then Magic IP => 1-2-3-4.nip.io 
+DT_KIAB_MIP=
+
 echo "usage 'source set_dt_variables.sh'"
 
 # FUNCTIONS DECLARATIONS

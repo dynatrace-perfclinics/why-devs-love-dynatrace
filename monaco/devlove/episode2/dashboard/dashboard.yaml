@@ -3,4 +3,6 @@ config:
 loadtest-overview:
 - name: "Why Devs 💜 Dynatrace - CICD - Intelligent QualityGates for EasyTravel"
 - owner: "{{ .Env.DT_USER }}"
-- easytravelip: "http://{{ .Env.DT_EASYTRAVELIP }}"
+- easytravel_mip: "{{ .Env.DT_EASYTRAVEL_MIP }}"
+- kiab_mip: "{{ .Env.DT_KIAB_MIP }}"
+- performancedashboard_id: "episode1/dashboard/performance-overview.id"

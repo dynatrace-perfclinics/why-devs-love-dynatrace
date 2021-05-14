@@ -9,13 +9,10 @@ config:
 - TestStepFailureRate: TestStepFailureRate.json
 - TestStepDBCalls: TestStepDBCalls.json
 - TestRequestsbyHTTPStatus: TestRequestsbyHTTPStatus.json
-- ExceptionCountbyHostET: ExceptionCountbyHostET.json
 - LoadTestnameResponseTime: LoadTestnameResponseTime.json
 
 DBCallsByStepAndServiceEasytravel:
 - name: DBCallsByStepAndServiceEasytravel
-ExceptionCountbyHostET:
-- name: ExceptionCount_by_Host_ET
 ExceptionsByServiceEasytravel:
 - name: ExceptionsByServiceEasytravel
 ExceptionsByStepEasytravel:

@@ -353,4 +353,7 @@ MigrationBackup/
 *-backup/
 
 # My files
-**-mine.**
+**-mine**
+
+# VS Code Workspaces
+*.code-workspace
