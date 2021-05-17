@@ -8,15 +8,15 @@ DT_TENANT_URL=
 # https://www.dynatrace.com/support/help/shortlink/token#create-an-api-token-
 # Token in format dt0c01.STXXXX....
 DT_API_TOKEN=
-
+DT_PAAS_TOKEN=
 # DT_USER (Your login username in the environment, Click on the top right on the people icon and see your id, it can be your email or a username)
 DT_USER=
 
 # Magic IP for easytravel. Example if public ip == 1.2.3.4 then Magic IP => 1-2-3-4.nip.io 
-DT_EASYTRAVEL_MIP=
+MIP_EASYTRAVEL=
 
 # Magic IP for KIAB (Keptn in a Box). Example if public ip == 1.2.3.4 then Magic IP => 1-2-3-4.nip.io 
-DT_KIAB_MIP=
+MIP_KIAB=
 
 echo "usage 'source set_dt_variables.sh'"
 
@@ -46,20 +46,25 @@ dynatracePrintValidateCredentials() {
         printInfo "Dynatrace Tenant: $DT_TENANT_URL"
         printInfo "Dynatrace API Token: $DT_API_TOKEN"
         printInfo "Dynatrace User: $DT_USER"
+        printInfo "Dynatrace EasyTravel MagicIP: $MIP_EASYTRAVEL"
+        printInfo "Dynatrace KIAB MagicIP: $MIP_KIAB"
     else
         printError "Dynatrace Variables not set, check your variables"
         printError "Dynatrace Tenant: $DT_TENANT_URL"
         printError "Dynatrace API Token: $DT_API_TOKEN"
         printError "Dynatrace User: $DT_USER"
+        printError "Dynatrace EasyTravel MagicIP: $MIP_EASYTRAVEL"
+        printError "Dynatrace KIAB MagicIP: $MIP_KIAB"
     fi
 }
 
 exportVariables() {
     export DT_TENANT_URL
     export DT_API_TOKEN
+    export DT_PAAS_TOKEN
     export DT_USER
-    export DT_EASYTRAVEL_MIP
-    export DT_KIAB_MIP
+    export MIP_EASYTRAVEL
+    export MIP_KIAB
 }
 
 setMonacoNewCli(){
