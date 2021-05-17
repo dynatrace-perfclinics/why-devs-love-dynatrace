@@ -1,494 +1,548 @@
 {
- "anomalyDetection": {
-  "loadingTimeThresholds": {
-   "enabled": false,
-   "thresholds": []
-  },
-  "outageHandling": {
-   "globalOutage": true,
-   "localOutage": false,
-   "localOutagePolicy": {
-    "affectedLocations": 1,
-    "consecutiveRuns": 3
-   },
-   "retryOnError": true
-  }
- },
- "automaticallyAssignedApps": [],
- "createdFrom": "API",
- "enabled": true,
- "entityId": "SYNTHETIC_TEST-2B6895F59C439D37",
- "events": [],
- "frequencyMin": 15,
- "keyPerformanceMetrics": {
-  "loadActionKpm": "VISUALLY_COMPLETE",
-  "xhrActionKpm": "VISUALLY_COMPLETE"
- },
- "locations": [
-  "GEOLOCATION-9999453BE4BDB3CD",
-  "GEOLOCATION-45AB48D9D6925ECC",
-  "GEOLOCATION-924D253001531722"
- ],
- "managementZones": [
-  {
-   "id": "701770050211966121",
-   "name": "EasyTravel"
-  }
- ],
- "manuallyAssignedApps": [],
- "name": "{{.name}}",
- "script": {
-  "configuration": {
-   "device": {
-    "deviceName": "Desktop",
-    "orientation": "landscape"
+    "anomalyDetection": {
+     "loadingTimeThresholds": {
+      "enabled": false,
+      "thresholds": []
+     },
+     "outageHandling": {
+      "globalOutage": true,
+      "localOutage": false,
+      "localOutagePolicy": {
+       "affectedLocations": 1,
+       "consecutiveRuns": 3
+      },
+      "retryOnError": true
+     }
+    },
+    "automaticallyAssignedApps": [
+     "APPLICATION-EA7C4B59F27D43EB"
+    ],
+    "createdFrom": "API",
+    "enabled": true,
+    "entityId": "SYNTHETIC_TEST-2B6895F59C439D37",
+    "events": [
+     {
+      "entityId": "SYNTHETIC_TEST_STEP-CEDDBF18EDEA3E89",
+      "name": "Loading of \"http://angular.{{ .easytravel_mip }}\"",
+      "sequenceNumber": 1
+     },
+     {
+      "entityId": "SYNTHETIC_TEST_STEP-364ACEFE6BC08F48",
+      "name": "click on \"search:destination\"",
+      "sequenceNumber": 2
+     },
+     {
+      "entityId": "SYNTHETIC_TEST_STEP-73787C7A58E8375F",
+      "name": "keystrokes on \"search:destination\"",
+      "sequenceNumber": 3
+     },
+     {
+      "entityId": "SYNTHETIC_TEST_STEP-26A6B053071808DB",
+      "name": "click on \"Cancun\"",
+      "sequenceNumber": 4
+     },
+     {
+      "entityId": "SYNTHETIC_TEST_STEP-DD10EA7CC0517F46",
+      "name": "click on \"search:result\"",
+      "sequenceNumber": 4
+     },
+     {
+      "entityId": "SYNTHETIC_TEST_STEP-72EE14FAC3EA02F9",
+      "name": "click on \"book:booknow\"",
+      "sequenceNumber": 5
+     },
+     {
+      "entityId": "SYNTHETIC_TEST_STEP-13334243BDC774D1",
+      "name": "click on \"loginForm:username\"",
+      "sequenceNumber": 6
+     },
+     {
+      "entityId": "SYNTHETIC_TEST_STEP-959498DFB1335CCB",
+      "name": "keystrokes on \"loginForm:username\"",
+      "sequenceNumber": 7
+     },
+     {
+      "entityId": "SYNTHETIC_TEST_STEP-6ED894EC96B3EE34",
+      "name": "click on \"loginForm:password\"",
+      "sequenceNumber": 8
+     },
+     {
+      "entityId": "SYNTHETIC_TEST_STEP-CCC2309965973CE6",
+      "name": "keystrokes on \"loginForm:password\"",
+      "sequenceNumber": 9
+     },
+     {
+      "entityId": "SYNTHETIC_TEST_STEP-F40D6CBE15465B11",
+      "name": "click on \"loginForm:submit\"",
+      "sequenceNumber": 10
+     },
+     {
+      "entityId": "SYNTHETIC_TEST_STEP-85C092A8A429BC7B",
+      "name": "click on \"payment:pay\"",
+      "sequenceNumber": 11
+     },
+     {
+      "entityId": "SYNTHETIC_TEST_STEP-99421712AD7263CE",
+      "name": "click",
+      "sequenceNumber": 12
+     },
+     {
+      "entityId": "SYNTHETIC_TEST_STEP-C4A83846DE49EC26",
+      "name": "click on \"creditCard:submit\"",
+      "sequenceNumber": 13
+     },
+     {
+      "entityId": "SYNTHETIC_TEST_STEP-A38AA8E25CFA5384",
+      "name": "click on \"summaryButton\"",
+      "sequenceNumber": 14
+     },
+     {
+      "entityId": "SYNTHETIC_TEST_STEP-643A59E40348858C",
+      "name": "click on \"header:logout\"",
+      "sequenceNumber": 15
+     }
+    ],
+    "frequencyMin": 15,
+    "keyPerformanceMetrics": {
+     "loadActionKpm": "VISUALLY_COMPLETE",
+     "xhrActionKpm": "VISUALLY_COMPLETE"
+    },
+    "locations": [
+     "GEOLOCATION-9999453BE4BDB3CD",
+     "GEOLOCATION-45AB48D9D6925ECC",
+     "GEOLOCATION-924D253001531722"
+    ],
+    "managementZones": [
+     {
+      "id": "701770050211966121",
+      "name": "EasyTravel"
+     }
+    ],
+    "manuallyAssignedApps": [],
+    "name": "{{.name}}",
+    "script": {
+     "configuration": {
+      "device": {
+       "deviceName": "Desktop",
+       "orientation": "landscape"
+      }
+     },
+     "events": [
+      {
+       "description": "Loading of \"http://angular.{{ .easytravel_mip }}\"",
+       "type": "navigate",
+       "url": "http://angular.{{ .easytravel_mip }}",
+       "wait": {
+        "waitFor": "page_complete"
+       }
+      },
+      {
+       "button": 0,
+       "description": "click on \"search:destination\"",
+       "target": {
+        "locators": [
+         {
+          "type": "css",
+          "value": "#search\\:destination"
+         },
+         {
+          "type": "css",
+          "value": "input[name=\"location\"]"
+         },
+         {
+          "type": "dom",
+          "value": "document.forms[0][\"location\"]"
+         },
+         {
+          "type": "css",
+          "value": ".hero-form-input:eq(0)"
+         },
+         {
+          "type": "css",
+          "value": "html body:nth-child(14) app-root app-dashboard:nth-child(2) app-main-layout div div:nth-child(2) app-hero div section form:nth-child(4) div div input"
+         }
+        ]
+       },
+       "type": "click",
+       "wait": {
+        "waitFor": "network"
+       }
+      },
+      {
+       "description": "keystrokes on \"search:destination\"",
+       "masked": false,
+       "simulateBlurEvent": true,
+       "simulateReturnKey": true,
+       "target": {
+        "locators": [
+         {
+          "type": "css",
+          "value": "#search\\:destination"
+         },
+         {
+          "type": "css",
+          "value": "input[name=\"location\"]"
+         },
+         {
+          "type": "dom",
+          "value": "document.forms[0][\"location\"]"
+         },
+         {
+          "type": "css",
+          "value": ".hero-form-input:eq(0)"
+         },
+         {
+          "type": "css",
+          "value": "html body:nth-child(14) app-root app-dashboard:nth-child(2) app-main-layout div div:nth-child(2) app-hero div section form:nth-child(4) div div input"
+         }
+        ]
+       },
+       "textValue": "Cancun",
+       "type": "keystrokes",
+       "wait": {
+        "waitFor": "network"
+       }
+      },
+      {
+       "button": 0,
+       "description": "click on \"search:result\"",
+       "target": {
+        "locators": [
+         {
+          "type": "css",
+          "value": "#search\\:result"
+         },
+         {
+          "type": "css",
+          "value": "a:contains(\"Turner Center - Cancun\")"
+         },
+         {
+          "type": "css",
+          "value": "html body:nth-child(14) app-root app-search:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) app-offers-list div app-offer:nth-child(2) h3:nth-child(2) a"
+         }
+        ]
+       },
+       "type": "click",
+       "wait": {
+        "waitFor": "network"
+       }
+      },
+      {
+       "button": 0,
+       "description": "click on \"book:booknow\"",
+       "target": {
+        "locators": [
+         {
+          "type": "css",
+          "value": "button[name=\"book:booknow\"]"
+         },
+         {
+          "type": "dom",
+          "value": "document.forms[0][1]"
+         },
+         {
+          "type": "css",
+          "value": "button:contains(\"Book Now\")"
+         },
+         {
+          "type": "css",
+          "value": "html body:nth-child(14) app-root app-journey:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) div div:nth-child(2) form:nth-child(2) button:nth-child(2)"
+         },
+         {
+          "type": "css",
+          "value": "body app-root app-journey app-main-layout.search-page div.page div.page-content main.page-section div.widget div.journey-actions form.ng-untouched button"
+         }
+        ]
+       },
+       "type": "click",
+       "wait": {
+        "waitFor": "network"
+       }
+      },
+      {
+       "button": 0,
+       "description": "click on \"loginForm:username\"",
+       "target": {
+        "locators": [
+         {
+          "type": "css",
+          "value": "#loginForm\\:username"
+         },
+         {
+          "type": "css",
+          "value": "input[type=\"text\"][name=\"email\"]"
+         },
+         {
+          "type": "dom",
+          "value": "document.forms[0][\"email\"]"
+         },
+         {
+          "type": "css",
+          "value": ".ng-untouched:eq(1)"
+         },
+         {
+          "type": "css",
+          "value": "html body:nth-child(14) app-root app-book-journey:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) div:nth-child(3) app-login-form form div input"
+         }
+        ]
+       },
+       "type": "click"
+      },
+      {
+       "description": "keystrokes on \"loginForm:username\"",
+       "masked": false,
+       "simulateBlurEvent": true,
+       "target": {
+        "locators": [
+         {
+          "type": "css",
+          "value": "#loginForm\\:username"
+         },
+         {
+          "type": "css",
+          "value": "input[type=\"text\"][name=\"email\"]"
+         },
+         {
+          "type": "dom",
+          "value": "document.forms[0][\"email\"]"
+         },
+         {
+          "type": "css",
+          "value": ".ng-untouched:eq(1)"
+         },
+         {
+          "type": "css",
+          "value": "html body:nth-child(14) app-root app-book-journey:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) div:nth-child(3) app-login-form form div input"
+         }
+        ]
+       },
+       "textValue": "maria",
+       "type": "keystrokes"
+      },
+      {
+       "button": 0,
+       "description": "click on \"loginForm:password\"",
+       "target": {
+        "locators": [
+         {
+          "type": "css",
+          "value": "#loginForm\\:password"
+         },
+         {
+          "type": "css",
+          "value": "input[type=\"password\"][name=\"password\"]"
+         },
+         {
+          "type": "dom",
+          "value": "document.forms[0][1]"
+         },
+         {
+          "type": "css",
+          "value": "html body:nth-child(14) app-root app-book-journey:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) div:nth-child(3) app-login-form form input:nth-child(2)"
+         }
+        ]
+       },
+       "type": "click"
+      },
+      {
+       "description": "keystrokes on \"loginForm:password\"",
+       "masked": true,
+       "simulateBlurEvent": true,
+       "target": {
+        "locators": [
+         {
+          "type": "css",
+          "value": "#loginForm\\:password"
+         },
+         {
+          "type": "css",
+          "value": "input[type=\"password\"][name=\"password\"]"
+         },
+         {
+          "type": "dom",
+          "value": "document.forms[0][1]"
+         },
+         {
+          "type": "css",
+          "value": "html body:nth-child(14) app-root app-book-journey:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) div:nth-child(3) app-login-form form input:nth-child(2)"
+         }
+        ]
+       },
+       "textValue": "U2FsdGVkX1+lYtqXu7IJhfuosMD6mTIWJUpO23vXw4o=",
+       "type": "keystrokes"
+      },
+      {
+       "button": 0,
+       "description": "click on \"loginForm:submit\"",
+       "target": {
+        "locators": [
+         {
+          "type": "css",
+          "value": "#loginForm\\:submit"
+         },
+         {
+          "type": "css",
+          "value": "button[type=\"submit\"]"
+         },
+         {
+          "type": "dom",
+          "value": "document.forms[0][2]"
+         },
+         {
+          "type": "css",
+          "value": "button:contains(\"Sign In\")"
+         },
+         {
+          "type": "css",
+          "value": "html body:nth-child(14) app-root app-book-journey:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) div:nth-child(3) app-login-form form button:nth-child(4)"
+         }
+        ]
+       },
+       "type": "click",
+       "wait": {
+        "waitFor": "network"
+       }
+      },
+      {
+       "button": 0,
+       "description": "click on \"payment:pay\"",
+       "target": {
+        "locators": [
+         {
+          "type": "css",
+          "value": "button[name=\"payment:pay\"]"
+         },
+         {
+          "type": "css",
+          "value": "button:contains(\"Pay $1165.3\")"
+         },
+         {
+          "type": "css",
+          "value": "html body:nth-child(14) app-root app-book-journey:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) div:nth-child(3) div:nth-child(2) p:nth-child(4) button"
+         },
+         {
+          "type": "css",
+          "value": "body app-root app-book-journey app-main-layout.search-page div.page div.page-content main.page-section div.steps div.step p button"
+         }
+        ]
+       },
+       "type": "click"
+      },
+      {
+       "button": 0,
+       "description": "click",
+       "target": {
+        "locators": [
+         {
+          "type": "css",
+          "value": "html body:nth-child(14) app-root app-book-journey:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) div:nth-child(3) app-billing:nth-child(3) div div h2 div fa-icon svg path"
+         },
+         {
+          "type": "css",
+          "value": "body app-root app-book-journey app-main-layout.search-page div.page div.page-content main.page-section div.steps app-billing.step div div.card-panel h2.card-title div fa-icon.ng-fa-icon svg.svg-inline--fa path"
+         }
+        ]
+       },
+       "type": "click"
+      },
+      {
+       "button": 0,
+       "description": "click on \"creditCard:submit\"",
+       "target": {
+        "locators": [
+         {
+          "type": "css",
+          "value": "button[type=\"button\"][name=\"creditCard:submit\"]"
+         },
+         {
+          "type": "css",
+          "value": "button:contains(\"Book Journey for $1165.3\")"
+         },
+         {
+          "type": "css",
+          "value": ".place-order"
+         },
+         {
+          "type": "css",
+          "value": "html body:nth-child(14) app-root app-book-journey:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) div:nth-child(3) app-billing:nth-child(3) div div div:nth-child(6) button"
+         },
+         {
+          "type": "css",
+          "value": "body app-root app-book-journey app-main-layout.search-page div.page div.page-content main.page-section div.steps app-billing.step div div.card-panel div.form-row button.place-order"
+         }
+        ]
+       },
+       "type": "click",
+       "wait": {
+        "waitFor": "network"
+       }
+      },
+      {
+       "button": 0,
+       "description": "click on \"summaryButton\"",
+       "target": {
+        "locators": [
+         {
+          "type": "css",
+          "value": "#summaryButton"
+         },
+         {
+          "type": "css",
+          "value": "button:eq(3)"
+         },
+         {
+          "type": "css",
+          "value": "button:contains(\"Open summary and tickets\")"
+         },
+         {
+          "type": "css",
+          "value": "html body:nth-child(14) app-root app-book-journey:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) div:nth-child(3) div:nth-child(4) button:nth-child(2)"
+         },
+         {
+          "type": "css",
+          "value": "#summaryButton"
+         }
+        ]
+       },
+       "type": "click"
+      },
+      {
+       "button": 0,
+       "description": "click on \"header:logout\"",
+       "target": {
+        "locators": [
+         {
+          "type": "css",
+          "value": "#header\\:logout"
+         },
+         {
+          "type": "css",
+          "value": "a:contains(\"Logout\")"
+         },
+         {
+          "type": "css",
+          "value": "html body:nth-child(14) app-root app-book-journey:nth-child(2) app-main-layout div app-header header nav:nth-child(2) a:nth-child(4)"
+         }
+        ]
+       },
+       "type": "click"
+      }
+     ],
+     "type": "clickpath",
+     "version": "1.0"
+    },
+    "tags": [
+     {
+      "context": "CONTEXTLESS",
+      "key": "EasyTravel",
+      "source": "RULE_BASED",
+      "value": "Synthetic"
+     },
+     {
+      "context": "CONTEXTLESS",
+      "key": "easytravel",
+      "source": "USER"
+     }
+    ],
+    "type": "BROWSER"
    }
-  },
-  "events": [
-   {
-    "description": "Loading of \"http://angular.{{ .easytravel_mip }}\"",
-    "type": "navigate",
-    "url": "http://angular.{{ .easytravel_mip }}",
-    "wait": {
-     "waitFor": "page_complete"
-    }
-   },
-   {
-    "button": 0,
-    "description": "click on \"search:destination\"",
-    "target": {
-     "locators": [
-      {
-       "type": "css",
-       "value": "#search\\:destination"
-      },
-      {
-       "type": "css",
-       "value": "input[name=\"location\"]"
-      },
-      {
-       "type": "dom",
-       "value": "document.forms[0][\"location\"]"
-      },
-      {
-       "type": "css",
-       "value": ".hero-form-input:eq(0)"
-      },
-      {
-       "type": "css",
-       "value": "html body:nth-child(8) app-root app-dashboard:nth-child(2) app-main-layout div div:nth-child(2) app-hero div section form:nth-child(4) div div input"
-      }
-     ]
-    },
-    "type": "click",
-    "wait": {
-     "waitFor": "network"
-    }
-   },
-   {
-    "description": "keystrokes on \"search:destination\"",
-    "masked": false,
-    "simulateBlurEvent": true,
-    "simulateReturnKey": true,
-    "target": {
-     "locators": [
-      {
-       "type": "css",
-       "value": "#search\\:destination"
-      },
-      {
-       "type": "css",
-       "value": "input[name=\"location\"]"
-      },
-      {
-       "type": "dom",
-       "value": "document.forms[0][\"location\"]"
-      },
-      {
-       "type": "css",
-       "value": ".hero-form-input:eq(0)"
-      },
-      {
-       "type": "css",
-       "value": "html body:nth-child(8) app-root app-dashboard:nth-child(2) app-main-layout div div:nth-child(2) app-hero div section form:nth-child(4) div div input"
-      }
-     ]
-    },
-    "textValue": "Cancun",
-    "type": "keystrokes"
-   },
-   {
-    "button": 0,
-    "description": "click on \"Cancun\"",
-    "target": {
-     "locators": [
-      {
-       "type": "css",
-       "value": ".item"
-      },
-      {
-       "type": "css",
-       "value": "html body:nth-child(8) app-root app-dashboard:nth-child(2) app-main-layout div div:nth-child(2) app-hero div section form:nth-child(4) div div ngui-auto-complete:nth-child(2) div ul li"
-      },
-      {
-       "type": "css",
-       "value": "body app-root app-dashboard app-main-layout.landing-page div.page div.page-content app-hero div.hero-wrapper section.page-section form.hero-form div.hero-form-field div.ngui-auto-complete-wrapper ngui-auto-complete div.ngui-auto-complete ul li.item"
-      }
-     ]
-    },
-    "type": "click"
-   },
-   {
-    "button": 0,
-    "description": "click on \"search:submit\"",
-    "target": {
-     "locators": [
-      {
-       "type": "css",
-       "value": "button[type=\"submit\"][name=\"search:submit\"]"
-      },
-      {
-       "type": "dom",
-       "value": "document.forms[0][98]"
-      },
-      {
-       "type": "css",
-       "value": "button:contains(\"Search\")"
-      },
-      {
-       "type": "css",
-       "value": ".hero-form-input:eq(4)"
-      },
-      {
-       "type": "css",
-       "value": "html body:nth-child(8) app-root app-dashboard:nth-child(2) app-main-layout div div:nth-child(2) app-hero div section form:nth-child(4) div:nth-child(5) button"
-      },
-      {
-       "type": "css",
-       "value": "body app-root app-dashboard app-main-layout.landing-page div.page div.page-content app-hero div.hero-wrapper section.page-section form.hero-form div.hero-form-field button.hero-form-input:eq(0)"
-      }
-     ]
-    },
-    "type": "click",
-    "wait": {
-     "waitFor": "network"
-    }
-   },
-   {
-    "button": 0,
-    "description": "click on \"search:result\"",
-    "target": {
-     "locators": [
-      {
-       "type": "css",
-       "value": "#search\\:result"
-      },
-      {
-       "type": "css",
-       "value": "a:contains(\"Turner Center - Cancun\")"
-      },
-      {
-       "type": "css",
-       "value": "html body:nth-child(8) app-root app-search:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) app-offers-list div app-offer:nth-child(2) h3:nth-child(2) a"
-      }
-     ]
-    },
-    "type": "click",
-    "wait": {
-     "waitFor": "network"
-    }
-   },
-   {
-    "button": 0,
-    "description": "click on \"book:booknow\"",
-    "target": {
-     "locators": [
-      {
-       "type": "css",
-       "value": "button[name=\"book:booknow\"]"
-      },
-      {
-       "type": "dom",
-       "value": "document.forms[0][1]"
-      },
-      {
-       "type": "css",
-       "value": "button:contains(\"Book Now\")"
-      },
-      {
-       "type": "css",
-       "value": "html body:nth-child(8) app-root app-journey:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) div div:nth-child(2) form:nth-child(2) button:nth-child(2)"
-      },
-      {
-       "type": "css",
-       "value": "body app-root app-journey app-main-layout.search-page div.page div.page-content main.page-section div.widget div.journey-actions form.ng-untouched button"
-      }
-     ]
-    },
-    "type": "click",
-    "wait": {
-     "waitFor": "network"
-    }
-   },
-   {
-    "button": 0,
-    "description": "click on \"loginForm:username\"",
-    "target": {
-     "locators": [
-      {
-       "type": "css",
-       "value": "#loginForm\\:username"
-      },
-      {
-       "type": "css",
-       "value": "input[type=\"text\"][name=\"email\"]"
-      },
-      {
-       "type": "dom",
-       "value": "document.forms[0][\"email\"]"
-      },
-      {
-       "type": "css",
-       "value": ".ng-untouched:eq(1)"
-      },
-      {
-       "type": "css",
-       "value": "html body:nth-child(8) app-root app-book-journey:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) div:nth-child(3) app-login-form form div input"
-      }
-     ]
-    },
-    "type": "click"
-   },
-   {
-    "description": "keystrokes on \"loginForm:username\"",
-    "masked": false,
-    "simulateBlurEvent": true,
-    "target": {
-     "locators": [
-      {
-       "type": "css",
-       "value": "#loginForm\\:username"
-      },
-      {
-       "type": "css",
-       "value": "input[type=\"text\"][name=\"email\"]"
-      },
-      {
-       "type": "dom",
-       "value": "document.forms[0][\"email\"]"
-      },
-      {
-       "type": "css",
-       "value": ".ng-untouched:eq(1)"
-      },
-      {
-       "type": "css",
-       "value": "html body:nth-child(8) app-root app-book-journey:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) div:nth-child(3) app-login-form form div input"
-      }
-     ]
-    },
-    "textValue": "maria",
-    "type": "keystrokes"
-   },
-   {
-    "description": "keystrokes on \"loginForm:password\"",
-    "masked": true,
-    "simulateBlurEvent": true,
-    "target": {
-     "locators": [
-      {
-       "type": "css",
-       "value": "#loginForm\\:password"
-      },
-      {
-       "type": "css",
-       "value": "input[type=\"password\"][name=\"password\"]"
-      },
-      {
-       "type": "dom",
-       "value": "document.forms[0][1]"
-      },
-      {
-       "type": "css",
-       "value": "html body:nth-child(8) app-root app-book-journey:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) div:nth-child(3) app-login-form form input:nth-child(2)"
-      }
-     ]
-    },
-    "textValue": "U2FsdGVkX19W0rOGlBx0ZBnsfTjYUyniNfJ8vOzv0hc=",
-    "type": "keystrokes"
-   },
-   {
-    "button": 0,
-    "description": "click on \"loginForm:submit\"",
-    "target": {
-     "locators": [
-      {
-       "type": "css",
-       "value": "#loginForm\\:submit"
-      },
-      {
-       "type": "css",
-       "value": "button[type=\"submit\"]"
-      },
-      {
-       "type": "dom",
-       "value": "document.forms[0][2]"
-      },
-      {
-       "type": "css",
-       "value": "button:contains(\"Sign In\")"
-      },
-      {
-       "type": "css",
-       "value": "html body:nth-child(8) app-root app-book-journey:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) div:nth-child(3) app-login-form form button:nth-child(4)"
-      }
-     ]
-    },
-    "type": "click",
-    "wait": {
-     "waitFor": "network"
-    }
-   },
-   {
-    "button": 0,
-    "description": "click on \"payment:pay\"",
-    "target": {
-     "locators": [
-      {
-       "type": "css",
-       "value": "button[name=\"payment:pay\"]"
-      },
-      {
-       "type": "css",
-       "value": "button:contains(\"Pay $1165.3\")"
-      },
-      {
-       "type": "css",
-       "value": "html body:nth-child(8) app-root app-book-journey:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) div:nth-child(3) div:nth-child(2) p:nth-child(4) button"
-      },
-      {
-       "type": "css",
-       "value": "body app-root app-book-journey app-main-layout.search-page div.page div.page-content main.page-section div.steps div.step p button"
-      }
-     ]
-    },
-    "type": "click"
-   },
-   {
-    "button": 0,
-    "description": "click",
-    "target": {
-     "locators": [
-      {
-       "type": "css",
-       "value": "html body:nth-child(8) app-root app-book-journey:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) div:nth-child(3) app-billing:nth-child(3) div div h2 div fa-icon svg path"
-      },
-      {
-       "type": "css",
-       "value": "body app-root app-book-journey app-main-layout.search-page div.page div.page-content main.page-section div.steps app-billing.step div div.card-panel h2.card-title div fa-icon.ng-fa-icon svg.svg-inline--fa path"
-      }
-     ]
-    },
-    "type": "click"
-   },
-   {
-    "button": 0,
-    "description": "click on \"creditCard:submit\"",
-    "target": {
-     "locators": [
-      {
-       "type": "css",
-       "value": "button[type=\"button\"][name=\"creditCard:submit\"]"
-      },
-      {
-       "type": "css",
-       "value": "button:contains(\"Book Journey for $1165.3\")"
-      },
-      {
-       "type": "css",
-       "value": ".place-order"
-      },
-      {
-       "type": "css",
-       "value": "html body:nth-child(8) app-root app-book-journey:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) div:nth-child(3) app-billing:nth-child(3) div div div:nth-child(6) button"
-      },
-      {
-       "type": "css",
-       "value": "body app-root app-book-journey app-main-layout.search-page div.page div.page-content main.page-section div.steps app-billing.step div div.card-panel div.form-row button.place-order"
-      }
-     ]
-    },
-    "type": "click",
-    "wait": {
-     "waitFor": "network"
-    }
-   },
-   {
-    "button": 0,
-    "description": "click on \"summaryButton\"",
-    "target": {
-     "locators": [
-      {
-       "type": "css",
-       "value": "#summaryButton"
-      },
-      {
-       "type": "css",
-       "value": "button:eq(3)"
-      },
-      {
-       "type": "css",
-       "value": "button:contains(\"Open summary and tickets\")"
-      },
-      {
-       "type": "css",
-       "value": "html body:nth-child(8) app-root app-book-journey:nth-child(2) app-main-layout div div:nth-child(2) main:nth-child(2) div:nth-child(3) div:nth-child(4) button:nth-child(2)"
-      },
-      {
-       "type": "css",
-       "value": "#summaryButton"
-      }
-     ]
-    },
-    "type": "click"
-   },
-   {
-    "button": 0,
-    "description": "click on \"header:logout\"",
-    "target": {
-     "locators": [
-      {
-       "type": "css",
-       "value": "#header\\:logout"
-      },
-      {
-       "type": "css",
-       "value": "a:contains(\"Logout\")"
-      },
-      {
-       "type": "css",
-       "value": "html body:nth-child(8) app-root app-book-journey:nth-child(2) app-main-layout div app-header header nav:nth-child(2) a:nth-child(4)"
-      }
-     ]
-    },
-    "type": "click"
-   }
-  ],
-  "type": "clickpath",
-  "version": "1.0"
- },
- "tags": [
-  {
-   "context": "CONTEXTLESS",
-   "key": "EasyTravel",
-   "source": "RULE_BASED",
-   "value": "Synthetic"
-  },
-  {
-   "context": "CONTEXTLESS",
-   "key": "easytravel",
-   "source": "USER"
-  }
- ],
- "type": "BROWSER"
-}

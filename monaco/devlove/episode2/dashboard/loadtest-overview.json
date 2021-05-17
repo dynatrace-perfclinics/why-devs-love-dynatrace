@@ -1380,7 +1380,7 @@
     "width": 608
    },
    "configured": true,
-   "markdown": " [⏱Deployment UTF](https://github.com/sergiohinojosa/azuredevops-easytravel/blob/master/set_deployment_var.sh) - [ ✈️ classic.easytravel](http://classic.{{ .easytravel_mip }}) - [✈️ angular.easytravel](http://angular.{{ .easytravel_mip }}) - [✈️ admin.easytravel](http://admin.{{ .easytravel_mip }}) ",
+   "markdown": " [⏱Deployment UTF](https://github.com/dynatrace-perfclinics/devlove-easytravel-pipelines/blob/master/deployment_schedule.md) -  ✈️ Easytravel Staging Systems: [Classic](http://classic.{{ .easytravel_mip }}) | [Modern](http://angular.{{ .easytravel_mip }}) | [Admin](http://admin.{{ .easytravel_mip }}) | [REST](http://rest.{{ .easytravel_mip }})",
    "name": "Markdown",
    "tileFilter": {
     "managementZone": null,
