@@ -58,6 +58,8 @@ exportVariables() {
     export DT_TENANT_URL
     export DT_API_TOKEN
     export DT_USER
+    export DT_EASYTRAVEL_MIP
+    export DT_KIAB_MIP
 }
 
 setMonacoNewCli(){
