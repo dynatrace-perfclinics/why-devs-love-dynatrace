@@ -1,6 +1,8 @@
 {
+    "description": null,
+    "entitySelectorBasedRules": [],
     "metadata": {
-     "clusterVersion": "1.212.111.20210322-210138",
+     "clusterVersion": "1.216.106.20210504-115058",
      "configurationVersions": [
       7
      ]
@@ -50,8 +52,8 @@
       ],
       "enabled": true,
       "propagationTypes": [
-       "PROCESS_GROUP_TO_HOST",
-       "PROCESS_GROUP_TO_SERVICE"
+       "PROCESS_GROUP_TO_SERVICE",
+       "PROCESS_GROUP_TO_HOST"
       ],
       "type": "PROCESS_GROUP",
       "valueFormat": "BackEnd"
@@ -188,6 +190,41 @@
       ],
       "type": "PROCESS_GROUP",
       "valueFormat": "FrontEnd"
+     },
+     {
+      "conditions": [
+       {
+        "comparisonInfo": {
+         "negate": false,
+         "operator": "EQUALS",
+         "type": "TAG",
+         "value": {
+          "context": "CONTEXTLESS",
+          "key": "EasyTravel",
+          "value": "FrontEnd"
+         }
+        },
+        "key": {
+         "attribute": "PROCESS_GROUP_TAGS"
+        }
+       },
+       {
+        "comparisonInfo": {
+         "caseSensitive": false,
+         "negate": false,
+         "operator": "CONTAINS",
+         "type": "STRING",
+         "value": "classic"
+        },
+        "key": {
+         "attribute": "SERVICE_NAME"
+        }
+       }
+      ],
+      "enabled": true,
+      "propagationTypes": [],
+      "type": "SERVICE",
+      "valueFormat": "QualityGate"
      }
     ]
    }
