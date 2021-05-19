@@ -15,7 +15,7 @@
    "QualityGates",
    "Loadtest",
    "CICD",
-   "AzureDevOps"
+   "Jenkins"
   ]
  },
  "metadata": {
@@ -25,15 +25,47 @@
   ]
  },
  "tiles": [
+    {
+     "bounds": {
+      "height": 38,
+      "left": 0,
+      "top": 0,
+      "width": 608
+     },
+     "configured": true,
+     "markdown": " [⏱Deployment UTF](https://github.com/dynatrace-perfclinics/devlove-easytravel-pipelines/blob/master/deployment_schedule.md) -  ✈️ Easytravel Staging Systems: [Classic](http://classic.{{ .easytravel_mip }}) | [Modern](http://angular.{{ .easytravel_mip }}) | [Admin](http://admin.{{ .easytravel_mip }}) | [REST](http://rest.{{ .easytravel_mip }})",
+     "name": "Markdown",
+     "tileFilter": {
+      "managementZone": null,
+      "timeframe": null
+     },
+     "tileType": "MARKDOWN"
+    },
+    {
+     "bounds": {
+      "height": 38,
+      "left": 608,
+      "top": 0,
+      "width": 190
+     },
+     "configured": true,
+     "markdown": "[ 📊performance overview]( #dashboard;gtf=today;gf=all;id={{ .performancedashboard_id }})",
+     "name": "Markdown",
+     "tileFilter": {
+      "managementZone": null,
+      "timeframe": null
+     },
+     "tileType": "MARKDOWN"
+    },
   {
    "bounds": {
     "height": 38,
     "left": 0,
-    "top": 0,
+    "top": 38,
     "width": 798
    },
    "configured": true,
-   "markdown": "[📦 AzureDevOps BuildPipe](https://dev.azure.com/dynatracedevops/easytravel-cicd/_build?definitionId=1) - [🥽 AzureDevOps ReleasePipe](https://dev.azure.com/dynatracedevops/easytravel-cicd/_release?_a=releases\u0026view=mine\u0026definitionId=2)  - [AzureDevOps Git](https://dev.azure.com/dynatracebuildingthefuture/_git/devopsdemo) - * - [🌉 Keptn Bridge](http://keptn.{{ .kiab_mip }}/bridge/project/)  - [👱‍♀️ voiceOps](https://assistant.dynatrace.com)",
+   "markdown": "[Pipelines repo](https://github.com/dynatrace-perfclinics/devlove-easytravel-pipelines) | [QualityGate GitOps](http://git.{{ .kiab_mip }}/keptn/easytravel) | [Jenkins](http://jenkins.{{ .kiab_mip }}) | [🌉 Keptn Bridge](http://keptn.{{ .kiab_mip }}/bridge/project/easytravel) | [📦 KIAB](http://{{ .kiab_mip }}) | [👱‍♀️ voiceOps](https://assistant.dynatrace.com)",
    "name": "Markdown",
    "tileFilter": {
     "managementZone": null,
@@ -459,7 +491,7 @@
     "width": 456
    },
    "configured": true,
-   "markdown": "**[🎯Easytravel WebServer]()** - \n[➡️LoadTest-Flow]()",
+   "markdown": "| [🏷 classic-eval](/ui/services?gf=all&gtf=-2h&filter=NON_DATABASE_SERVICE-TAG%3Dclassic╍eval) - [❇️ classic-eval](#newservices/serviceOverview;id=SERVICE-REPLACEID;) | \n[➡️LoadTest-Flow](#serviceflow;sci=SERVICE-REPLACEID;gf=all;mode=RESPONSE_TIME;servicefilter=0%1E15%11c002b0e8-ec72-406b-8af6-f64eaa7fe7c6%14%140%14%14%14%14)",
    "name": "Markdown",
    "tileFilter": {
     "managementZone": null,
@@ -1009,12 +1041,12 @@
   {
    "bounds": {
     "height": 38,
-    "left": 950,
+    "left": 836,
     "top": 1026,
-    "width": 304
+    "width": 912
    },
    "configured": true,
-   "markdown": "### [Release Inventory](/ui/releases?demo=false)",
+   "markdown": "### 📚 Resources: [dynatrace-perfclinics.github.io](https://dynatrace-perfclinics.github.io) | [Keptn in a Box Tutorial](https://tutorials.keptn.sh/tutorials/keptn-in-a-box-08) | [Load Test Integration Dynatrace](https://www.dynatrace.com/support/help/setup-and-configuration/integrations/third-party-integrations/test-automation-frameworks/dynatrace-and-load-testing-tools-integration/)",
    "name": "Markdown",
    "tileFilter": {
     "managementZone": null,
@@ -1023,21 +1055,21 @@
    "tileType": "MARKDOWN"
   },
   {
-   "bounds": {
-    "height": 38,
-    "left": 1254,
-    "top": 1026,
-    "width": 304
+    "bounds": {
+     "height": 38,
+     "left": 836,
+     "top": 1064,
+     "width": 912
+    },
+    "configured": true,
+    "markdown": "### [☁️🦾 Cloud Automation](https://www.dynatrace.com/platform/cloud-automation/) | [Cloud Automation HowTo📄](https://www.dynatrace.com/support/help/how-to-use-dynatrace/cloud-automation/) | [keptn.sh](https://keptn.sh)",
+    "name": "Markdown",
+    "tileFilter": {
+     "managementZone": null,
+     "timeframe": null
+    },
+    "tileType": "MARKDOWN"
    },
-   "configured": true,
-   "markdown": "###[Service Level Objectives](/ui/slo?demo=true) ",
-   "name": "Markdown",
-   "tileFilter": {
-    "managementZone": null,
-    "timeframe": null
-   },
-   "tileType": "MARKDOWN"
-  },
   {
    "bounds": {
     "height": 38,
@@ -1371,38 +1403,6 @@
     ],
     "type": "TABLE"
    }
-  },
-  {
-   "bounds": {
-    "height": 38,
-    "left": 0,
-    "top": 38,
-    "width": 608
-   },
-   "configured": true,
-   "markdown": " [⏱Deployment UTF](https://github.com/dynatrace-perfclinics/devlove-easytravel-pipelines/blob/master/deployment_schedule.md) -  ✈️ Easytravel Staging Systems: [Classic](http://classic.{{ .easytravel_mip }}) | [Modern](http://angular.{{ .easytravel_mip }}) | [Admin](http://admin.{{ .easytravel_mip }}) | [REST](http://rest.{{ .easytravel_mip }})",
-   "name": "Markdown",
-   "tileFilter": {
-    "managementZone": null,
-    "timeframe": null
-   },
-   "tileType": "MARKDOWN"
-  },
-  {
-   "bounds": {
-    "height": 38,
-    "left": 608,
-    "top": 38,
-    "width": 190
-   },
-   "configured": true,
-   "markdown": "[ 📊performance overview]( #dashboard;gtf=today;gf=all;id={{ .performancedashboard_id }})",
-   "name": "Markdown",
-   "tileFilter": {
-    "managementZone": null,
-    "timeframe": null
-   },
-   "tileType": "MARKDOWN"
   }
  ]
 }

@@ -1,0 +1,4 @@
+config:
+- classic-eval: classic-eval.json
+classic-eval:
+- name: classic-eval

@@ -1,0 +1,48 @@
+{
+ "description": null,
+ "entitySelectorBasedRules": [],
+ "metadata": {
+  "clusterVersion": "1.216.106.20210504-115058",
+  "configurationVersions": [
+   7
+  ]
+ },
+ "name": "{{.name}}",
+ "rules": [
+  {
+   "conditions": [
+    {
+     "comparisonInfo": {
+      "negate": false,
+      "operator": "EQUALS",
+      "type": "TAG",
+      "value": {
+       "context": "CONTEXTLESS",
+       "key": "EasyTravel",
+       "value": "FrontEnd"
+      }
+     },
+     "key": {
+      "attribute": "SERVICE_TAGS"
+     }
+    },
+    {
+     "comparisonInfo": {
+      "caseSensitive": true,
+      "negate": false,
+      "operator": "CONTAINS",
+      "type": "STRING",
+      "value": "classic"
+     },
+     "key": {
+      "attribute": "SERVICE_NAME"
+     }
+    }
+   ],
+   "enabled": true,
+   "propagationTypes": [],
+   "type": "SERVICE",
+   "valueFormat": null
+  }
+ ]
+}

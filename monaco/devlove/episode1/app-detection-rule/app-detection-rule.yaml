@@ -1,4 +1,5 @@
 config:
+- EasyTravelClassic: rule.json
 - EasyTravelClassic-8079: rule.json
 - EasyTravelClassic-8080: rule.json
 - EasyTravelAngular: rule.json
@@ -29,6 +30,12 @@ EasyTravelClassic-8079:
 - target: "URL"
 - type: "CONTAINS"
 - pattern: ":8079"
+EasyTravelClassic:
+- name: EasyTravel Classic
+- applicationId: "episode1/application-web/EasyTravelClassic.id"
+- target: "URL"
+- type: "CONTAINS"
+- pattern: "classic."
 EasyTravelClassic-8080:
 - name: EasyTravel Classic 8080
 - applicationId: "episode1/application-web/EasyTravelClassic.id"
