@@ -127,6 +127,14 @@ utilsInstall() {
   apt install jq -y
   printInfo "Install Docker"
   apt install docker.io -y
+  printInfo "Setting default logging for Docker to avoid disk issues"
+  echo '{
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "10m",
+    "max-file": "3"
+    }
+  }' > /etc/docker/daemon.json
   service docker start
   usermod -a -G docker $USER
   printInfo "Installation of Libraries for the Angular Loadtest to work on the system "
