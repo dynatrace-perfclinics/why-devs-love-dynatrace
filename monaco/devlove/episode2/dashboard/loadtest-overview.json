@@ -65,7 +65,7 @@
     "width": 798
    },
    "configured": true,
-   "markdown": "[Pipelines repo](https://github.com/dynatrace-perfclinics/devlove-easytravel-pipelines) | [QualityGate GitOps](http://git.{{ .kiab_mip }}/keptn/easytravel) | [Jenkins](http://jenkins.{{ .kiab_mip }}) | [🌉 Keptn Bridge](http://keptn.{{ .kiab_mip }}/bridge/project/easytravel) | [📦 KIAB](http://{{ .kiab_mip }}) | [👱‍♀️ voiceOps](https://assistant.dynatrace.com)",
+   "markdown": "[Pipelines repo](https://github.com/dynatrace-perfclinics/devlove-easytravel-pipelines) | [QualityGate GitOps](http://git.{{ .kiab_mip }}/keptn/easytravel) | [Jenkins](http://jenkins.{{ .kiab_mip }}) | [ 🚦 Keptn Bridge](http://keptn.{{ .kiab_mip }}/bridge/project/easytravel) | [📦 KIAB](http://{{ .kiab_mip }}) | [🚀 Release Inventory](/ui/releases) | [👱‍♀️ voiceOps](https://assistant.dynatrace.com)",
    "name": "Markdown",
    "tileFilter": {
     "managementZone": null,
@@ -491,7 +491,7 @@
     "width": 456
    },
    "configured": true,
-   "markdown": "| [🏷 classic-eval](/ui/services?gf=all&gtf=-2h&filter=NON_DATABASE_SERVICE-TAG%3Dclassic╍eval) - [❇️ classic-eval](#newservices/serviceOverview;id=SERVICE-REPLACEID;) | \n[➡️LoadTest-Flow](#serviceflow;sci=SERVICE-REPLACEID;gf=all;mode=RESPONSE_TIME;servicefilter=0%1E15%11c002b0e8-ec72-406b-8af6-f64eaa7fe7c6%14%140%14%14%14%14)",
+   "markdown": "| [🏷 classic-eval](/ui/services?gf=all&gtf=-2h&filter=NON_DATABASE_SERVICE-TAG%3Dclassic╍eval) - [❇️ classic-eval](#newservices/serviceOverview;id={{ .service_id_classic }};) | \n[➡️LoadTest-Flow](#serviceflow;sci={{ .service_id_classic }};gf=all;mode=RESPONSE_TIME;)",
    "name": "Markdown",
    "tileFilter": {
     "managementZone": null,
@@ -1078,7 +1078,7 @@
     "width": 266
    },
    "configured": true,
-   "markdown": "###🧵[ThreadGroup analysis](/ui/diagnostictools/codelevel/PROCESS_GROUP_INSTANCE-A6783A7F6E733000/threadanalysis) ",
+   "markdown": "###🧵[ThreadGroup analysis](/ui/diagnostictools/codelevel/{{ .pg_id_backend }}/threadanalysis) ",
    "name": "Markdown",
    "tileFilter": {
     "managementZone": null,
@@ -1094,7 +1094,7 @@
     "width": 266
    },
    "configured": true,
-   "markdown": "###💾[Memory Allocation analysis](/ui/services/PROCESS_GROUP-CB01E8106F5F846B/memoryallocation)",
+   "markdown": "###💾[Memory Allocation analysis](/ui/services/{{ .pg_id_backend }}/memoryallocation)",
    "name": "Markdown",
    "tileFilter": {
     "managementZone": null,

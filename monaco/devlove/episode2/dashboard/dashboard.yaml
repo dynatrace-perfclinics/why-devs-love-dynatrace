@@ -5,4 +5,6 @@ loadtest-overview:
 - owner: "{{ .Env.DT_USER }}"
 - easytravel_mip: "{{ .Env.MIP_EASYTRAVEL }}"
 - kiab_mip: "{{ .Env.MIP_KIAB }}"
+- service_id_classic: "{{ .Env.SERVICE_ID_CLASSIC }}"
+- pg_id_backend: "{{ .Env.PG_ID_BACKEND }}"
 - performancedashboard_id: "episode1/dashboard/performance-overview.id"
