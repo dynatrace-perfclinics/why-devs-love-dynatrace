@@ -162,7 +162,7 @@ installDynatrace() {
   if [ -n "${DT_TENANT_URL}" ]; then
     printInfoSection "Installation of OneAgent"
     wget -nv -O oneagent.sh "$DT_TENANT_URL/api/v1/deployment/installer/agent/unix/default/latest?Api-Token=$DT_PAAS_TOKEN&arch=x86&flavor=default"
-    sh oneagent.sh APP_LOG_CONTENT_ACCESS=1 INFRA_ONLY=0
+    sh oneagent.sh --set-app-log-content-access=true --set-system-logs-access-enabled=true --set-infra-only=false --set-host-name=easytravel.staging
   fi
 }
 

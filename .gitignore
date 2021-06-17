@@ -354,6 +354,9 @@ MigrationBackup/
 
 # My files
 **-mine**
+**_.**
 
 # VS Code Workspaces
 *.code-workspace
+
+*.DS_Store
