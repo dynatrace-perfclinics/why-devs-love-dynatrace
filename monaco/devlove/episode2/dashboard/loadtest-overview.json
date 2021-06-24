@@ -491,7 +491,7 @@
     "width": 456
    },
    "configured": true,
-   "markdown": "| [🏷 classic-eval](/ui/services?gf=all&gtf=-2h&filter=NON_DATABASE_SERVICE-TAG%3Dclassic╍eval) - [❇️ classic-eval](#newservices/serviceOverview;id={{ .service_id_classic }};) | \n[➡️LoadTest-Flow](#serviceflow;sci={{ .service_id_classic }};gf=all;mode=RESPONSE_TIME;)",
+   "markdown": "| [🏷 classic-eval](/ui/services?gf=all&gtf=-2h&filter=NON_DATABASE_SERVICE-TAG%3Dclassic╍eval) - [❇️ classic-eval](#newservices/serviceOverview;id={{ .service_id_classic }};) | \n[➡️Svc-Flow](#serviceflow;sci={{ .service_id_classic }};gf=all;mode=RESPONSE_TIME;) | \n[🔥Compare](#serviceComparison;serviceId={{ .service_id_classic }};gtf=-2h;gf=all;tfshift=TwoHoursBefore) ",
    "name": "Markdown",
    "tileFilter": {
     "managementZone": null,
