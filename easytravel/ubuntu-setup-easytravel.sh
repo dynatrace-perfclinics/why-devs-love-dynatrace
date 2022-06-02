@@ -302,7 +302,7 @@ setupMagicDomainPublicIp() {
 installEasyTravel() {
   printInfoSection "Download, install and configure EasyTravel"
   cd /home/$USER
-  wget -nv -O dynatrace-easytravel-linux-x86_64.jar http://dexya6d9gs5s.cloudfront.net/latest/dynatrace-easytravel-linux-x86_64.jar
+  wget -nv -O dynatrace-easytravel-linux-x86_64.jar https://etinstallers.demoability.dynatracelabs.com/latest/dynatrace-easytravel-linux-x86_64.jar
   java -jar dynatrace-easytravel-linux-x86_64.jar -y
   rm dynatrace-easytravel-linux-x86_64.jar
   chmod 755 -R easytravel-2.0.0-x64
